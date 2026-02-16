@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bgc1h2yyjs5dc"]
+
+[ext_resource type="Texture2D" uid="uid://dyfe314xdrhv4" path="res://Assets/mousepad.png" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://yi41qtvv27tb" path="res://Scenes/Keyboard.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://byjhsi4ko3wxe" path="res://Assets/desk.png" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://blen6hpoa4nv8" path="res://Scenes/UI.tscn" id="2_0xm2m"]
+
+[node name="Node2D" type="Node2D" unique_id=709920183]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=802252282]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=900245066]
+repeat_size = Vector2(128, 128)
+repeat_times = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1348707956]
+scale = Vector2(2, 2)
+texture = ExtResource("1_jjvhh")
+
+[node name="Mousepad" type="Sprite2D" parent="." unique_id=2084341646]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("1_8gbba")
+
+[node name="Keyboard" parent="." unique_id=714098873 instance=ExtResource("1_ig7tw")]
+
+[node name="UI" parent="." unique_id=1002928193 instance=ExtResource("2_0xm2m")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1404588316]

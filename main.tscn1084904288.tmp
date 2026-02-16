@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bgc1h2yyjs5dc"]
+
+[sub_resource type="GDScript" id="GDScript_7dm0k"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	text = \"Money: %d\" % Global.money
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"money_generated\"):
+		Global.money_generated.emit()
+		text = \"Money: %d\" % Global.money
+"
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1495645165]
+
+[node name="Control" type="Control" parent="." unique_id=1278400620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats" type="Label" parent="Control" unique_id=1524348828]
+layout_mode = 1
+offset_right = 65.0
+offset_bottom = 23.0
+text = "Player: "
+
+[node name="Money" type="Label" parent="Control" unique_id=713459024]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Money: 0"
+script = SubResource("GDScript_7dm0k")

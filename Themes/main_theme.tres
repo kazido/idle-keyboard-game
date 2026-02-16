@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://h6t4d457soli"]
+
+[ext_resource type="FontFile" uid="uid://bd8t7plxn332b" path="res://Fonts/Tiny5/Tiny5-Regular.ttf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+default_font_size = 20

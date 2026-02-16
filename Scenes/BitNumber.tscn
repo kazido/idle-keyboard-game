@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bonjq13gcy8q5"]
+
+[sub_resource type="GDScript" id="GDScript_yv86v"]
+script/source = "extends Node2D
+
+var amount: int:
+	set(value):
+		amount = value
+		$Label.text = \"+%d\" % amount
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, \"position:x\", randi_range(-5, 5), 0.2)\\
+		.set_trans(Tween.TRANS_EXPO)\\
+		.set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(self, \"position:y\", -30, 0.5)\\
+		.set_trans(Tween.TRANS_CIRC)\\
+		.set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(self, \"modulate:a\", 0.0, 0.5)\\
+		.set_ease(Tween.EASE_OUT)
+"
+
+[node name="BitNumber" type="Node2D" unique_id=130016452]
+z_index = 10
+script = SubResource("GDScript_yv86v")
+
+[node name="Label" type="Label" parent="." unique_id=1008788360]
+modulate = Color(1, 1, 1, 0.60784316)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 11.5)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1

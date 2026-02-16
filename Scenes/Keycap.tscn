@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://bpgexwjvjorra"]
+
+[ext_resource type="Texture2D" uid="uid://c5db0jo45qtwn" path="res://Assets/keycap1.png" id="1_f1uiu"]
+[ext_resource type="Texture2D" uid="uid://jfwpmoljl5e0" path="res://Assets/keycap2.png" id="2_0ytle"]
+
+[sub_resource type="GDScript" id="GDScript_f1uiu"]
+script/source = "extends Node2D
+
+@export var name_overwrite: String = \"\"
+@export var click_value: int = 1
+@export var auto_value: int = 0
+
+
+@export var is_unlocked: bool = false:
+	set(value):
+		is_unlocked = value
+		_update_visuals()
+
+@export var target_key: Key:
+	set(value):
+		target_key = value
+		_update_label()
+	
+@export var upgrade_level: int = 0:
+	set(value):
+		upgrade_level = value
+		_update_visuals()
+		
+@onready var label = $Label
+@onready var sprite = $AnimatedSprite2D
+@onready var bit_number_scene := preload(\"res://Scenes/BitNumber.tscn\")
+
+func _ready() -> void:
+	_update_label()
+	_update_visuals()
+	
+	Global.register_key(target_key, self)
+	
+func _update_label():
+	if not is_inside_tree(): return
+	# Converts KeyCode to String for the label
+	$Label.text = name_overwrite if name_overwrite else OS.get_keycode_string(target_key)
+	
+	
+func _update_visuals():
+	if not is_inside_tree(): return
+	# Handle changing the visuals.
+	if is_unlocked:
+		modulate.a = 1.0
+	else:
+		modulate.a = 0.1
+		
+		
+func set_light_color(color: Color):
+	$Backlight.modulate = color
+	
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_unlocked: return # Don't listen to any keys we don't own yet
+	if event is InputEventKey and event.keycode == target_key:
+		if event.is_echo(): return
+		if event.pressed:
+			_on_key_down()
+		else:
+			_on_key_up()
+			
+func _on_key_down():
+	Global.money += click_value
+	sprite.play(\"pressed\")
+	
+	var bit_number := bit_number_scene.instantiate()
+	bit_number.amount = click_value
+	add_child(bit_number)
+	
+	label.scale = Vector2(0.9, 0.9)
+	
+func _on_key_up():
+	sprite.play(\"default\")
+	label.scale = Vector2(1, 1)
+		
+		
+"
+
+[sub_resource type="Gradient" id="Gradient_bammy"]
+offsets = PackedFloat32Array(0.7108434, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgoes"]
+gradient = SubResource("Gradient_bammy")
+width = 20
+height = 20
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1uiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f1uiu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ytle")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[node name="Keycap" type="Node2D" unique_id=1864117511]
+script = SubResource("GDScript_f1uiu")
+
+[node name="Backlight" type="Sprite2D" parent="." unique_id=723261866]
+modulate = Color(0, 0.85490197, 0.7254902, 0.41568628)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253031616]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="." unique_id=862973187]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
