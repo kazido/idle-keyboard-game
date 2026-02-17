@@ -2,20 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://c8y4cuahmfdn7" path="res://Assets/keyboard.png" id="1_3tvup"]
 [ext_resource type="Texture2D" uid="uid://cfb772ojlgyaf" path="res://Assets/keyboard_cable.png" id="1_b0l4n"]
-[ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://Scenes/Keycap.tscn" id="1_tp6fx"]
+[ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://Keycaps/Keycap.tscn" id="1_tp6fx"]
 [ext_resource type="Texture2D" uid="uid://d2a2w6stxxq1t" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
+[ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://Keycaps/Spacebar.tscn" id="4_rthbk"]
+[ext_resource type="PackedScene" uid="uid://dy53cghmi84vo" path="res://Keycaps/Backspace.tscn" id="5_swrkl"]
+[ext_resource type="PackedScene" uid="uid://br6j888yr3yj7" path="res://Scenes/Backslash.tscn" id="6_dtepm"]
+[ext_resource type="PackedScene" uid="uid://clfugrjki4y68" path="res://Scenes/Modifier.tscn" id="6_ikr7f"]
+[ext_resource type="PackedScene" uid="uid://b1lgjvashoc6x" path="res://Scenes/Enter.tscn" id="7_csj70"]
+[ext_resource type="PackedScene" uid="uid://bvgkxqel877fa" path="res://Scenes/RightShift.tscn" id="8_oyhre"]
+[ext_resource type="PackedScene" uid="uid://ch3brhcetlyqn" path="res://Scenes/Tab.tscn" id="10_omdst"]
+[ext_resource type="PackedScene" uid="uid://40wucmn8583g" path="res://Scenes/Capslock.tscn" id="11_gtxdj"]
+[ext_resource type="PackedScene" uid="uid://bqs3rqntb83ry" path="res://Scenes/LeftShift.tscn" id="12_3mfwe"]
 
 [sub_resource type="GDScript" id="GDScript_b0l4n"]
 resource_name = "Keyboard"
 script/source = "extends Node2D
 
-enum LightMode { STATIC, RAINBOW_WAVE, PULSE }
+enum LightMode { STATIC, RAINBOW_WAVE, PULSE, OFF}
 
-@export var current_mode: LightMode = LightMode.RAINBOW_WAVE
+@export var current_mode: LightMode = LightMode.OFF
 
 @export_category(\"Rainbow Wave Settings\")
 @export var wave_speed: float = 0.5
 @export var wave_frequency: float = 0.001
+
+
+func _ready() -> void:
+	for key_set in get_children():
+		for key in key_set.get_children():
+			if not key.is_unlocked and key.has_method(\"set_light_color\"):
+				key.set_light_color(Color.BLACK)
 
 func _process(_delta: float):
 	match current_mode:
@@ -26,15 +42,13 @@ func _process(_delta: float):
 func _apply_rainbow_wave():
 	var time = Time.get_ticks_msec() * 0.001
 	
-	for set in get_children():
-		for key in set.get_children():
+	for key_set in get_children():
+		for key in key_set.get_children():
 			if key.is_unlocked and key.has_method(\"set_light_color\"):
 				var hue = fmod((key.position.x * wave_frequency) + (time * wave_speed), 1.0)
 				
 				var new_color = Color.from_hsv(hue, 0.8, 1.0)
 				key.set_light_color(new_color)
-			else:
-				key.set_light_color(Color.BLACK)
 				
 "
 
@@ -49,246 +63,260 @@ texture = ExtResource("1_b0l4n")
 position = Vector2(-7, 0)
 texture = ExtResource("1_3tvup")
 script = SubResource("GDScript_b0l4n")
+current_mode = 1
 
 [node name="Keycaps" type="Node2D" parent="Keyboard" unique_id=1815924809]
 position = Vector2(0.5, -0.5)
 
 [node name="G" parent="Keyboard/Keycaps" unique_id=1864117511 instance=ExtResource("1_tp6fx")]
 position = Vector2(-18, -1)
-is_unlocked = true
 target_key = 71
 
 [node name="H" parent="Keyboard/Keycaps" unique_id=1680108553 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(0, -1)
 target_key = 72
 
 [node name="F" parent="Keyboard/Keycaps" unique_id=1931038734 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-36, -1)
 target_key = 70
 
 [node name="J" parent="Keyboard/Keycaps" unique_id=1213908858 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(18, -1)
 target_key = 74
 
 [node name="D" parent="Keyboard/Keycaps" unique_id=1037075287 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-54, -1)
 target_key = 68
 
 [node name="K" parent="Keyboard/Keycaps" unique_id=1908506534 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(36, -1)
 target_key = 75
 
 [node name="S" parent="Keyboard/Keycaps" unique_id=1865005823 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-72, -1)
 target_key = 83
 
 [node name="L" parent="Keyboard/Keycaps" unique_id=368009364 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(54, -1)
 target_key = 76
 
 [node name="A" parent="Keyboard/Keycaps" unique_id=536237657 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-90, -1)
 target_key = 65
 
-[node name="Semicolon" parent="Keyboard/Keycaps" unique_id=2111844525 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(72, -1)
-name_overwrite = ";"
-target_key = 59
-
-[node name="Quotation Marks" parent="Keyboard/Keycaps" unique_id=391314673 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(90, -1)
-name_overwrite = "\""
-target_key = 39
-
 [node name="T" parent="Keyboard/Keycaps" unique_id=1403192171 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-27, -19)
 target_key = 84
 
 [node name="Y" parent="Keyboard/Keycaps" unique_id=1751798487 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-9, -19)
 target_key = 89
 
 [node name="R" parent="Keyboard/Keycaps" unique_id=1096142773 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-45, -19)
 target_key = 82
 
 [node name="U" parent="Keyboard/Keycaps" unique_id=1008570255 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(9, -19)
 target_key = 85
 
 [node name="E" parent="Keyboard/Keycaps" unique_id=513665231 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-63, -19)
 target_key = 69
 
 [node name="I" parent="Keyboard/Keycaps" unique_id=1450729740 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(27, -19)
 target_key = 73
 
 [node name="W" parent="Keyboard/Keycaps" unique_id=1552983992 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-81, -19)
 target_key = 87
 
 [node name="O" parent="Keyboard/Keycaps" unique_id=921118972 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(45, -19)
 target_key = 79
 
 [node name="Q" parent="Keyboard/Keycaps" unique_id=1060203104 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-99, -19)
 target_key = 81
 
 [node name="P" parent="Keyboard/Keycaps" unique_id=2014074744 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(63, -19)
 target_key = 80
 
-[node name="Left Bracket" parent="Keyboard/Keycaps" unique_id=95391016 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(81, -19)
-name_overwrite = "["
-target_key = 91
-
-[node name="Right Bracket" parent="Keyboard/Keycaps" unique_id=1271521160 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(99, -19)
-name_overwrite = "]"
-target_key = 93
-
 [node name="B" parent="Keyboard/Keycaps" unique_id=113476759 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-11, 17)
 target_key = 66
 
 [node name="V" parent="Keyboard/Keycaps" unique_id=582737025 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-29, 17)
 target_key = 86
 
 [node name="N" parent="Keyboard/Keycaps" unique_id=350762359 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(7, 17)
 target_key = 78
 
 [node name="C" parent="Keyboard/Keycaps" unique_id=1169808341 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-47, 17)
 target_key = 67
 
 [node name="M" parent="Keyboard/Keycaps" unique_id=981274936 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(25, 17)
 target_key = 77
 
 [node name="X" parent="Keyboard/Keycaps" unique_id=394609838 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-65, 17)
 target_key = 88
 
-[node name="Comma" parent="Keyboard/Keycaps" unique_id=1162386408 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(43, 17)
-name_overwrite = ","
-target_key = 44
-
 [node name="Z" parent="Keyboard/Keycaps" unique_id=1220881557 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
 position = Vector2(-83, 17)
 target_key = 90
-
-[node name="Period" parent="Keyboard/Keycaps" unique_id=1057860110 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(61, 17)
-name_overwrite = "."
-target_key = 46
-
-[node name="Forward Slash" parent="Keyboard/Keycaps" unique_id=1801483802 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(79, 17)
-name_overwrite = "/"
-target_key = 47
 
 [node name="Number Row" type="Node2D" parent="Keyboard" unique_id=1010099432]
 position = Vector2(7, 0)
 
-[node name="1" parent="Keyboard/Number Row" unique_id=939101714 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro" parent="Keyboard/Number Row" unique_id=449460918 instance=ExtResource("1_tp6fx")]
 position = Vector2(-111.5, -37.5)
 target_key = 49
 
-[node name="2" parent="Keyboard/Number Row" unique_id=304747142 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro2" parent="Keyboard/Number Row" unique_id=1127198804 instance=ExtResource("1_tp6fx")]
 position = Vector2(-93.5, -37.5)
 target_key = 50
 
-[node name="3" parent="Keyboard/Number Row" unique_id=653838385 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro3" parent="Keyboard/Number Row" unique_id=1305622815 instance=ExtResource("1_tp6fx")]
 position = Vector2(-75.5, -37.5)
 target_key = 51
 
-[node name="4" parent="Keyboard/Number Row" unique_id=113823247 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(-58, -37.5)
+[node name="Macro4" parent="Keyboard/Number Row" unique_id=374323172 instance=ExtResource("1_tp6fx")]
+position = Vector2(-57.5, -37.5)
 target_key = 52
 
-[node name="5" parent="Keyboard/Number Row" unique_id=304158421 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro5" parent="Keyboard/Number Row" unique_id=1990141861 instance=ExtResource("1_tp6fx")]
 position = Vector2(-39.5, -37.5)
 target_key = 53
 
-[node name="6" parent="Keyboard/Number Row" unique_id=94449006 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro6" parent="Keyboard/Number Row" unique_id=1980950347 instance=ExtResource("1_tp6fx")]
 position = Vector2(-21.5, -37.5)
 target_key = 54
 
-[node name="7" parent="Keyboard/Number Row" unique_id=1901945385 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro7" parent="Keyboard/Number Row" unique_id=1186341495 instance=ExtResource("1_tp6fx")]
 position = Vector2(-3.5, -37.5)
 target_key = 55
 
-[node name="8" parent="Keyboard/Number Row" unique_id=1335591620 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro8" parent="Keyboard/Number Row" unique_id=1530416403 instance=ExtResource("1_tp6fx")]
 position = Vector2(14.5, -37.5)
 target_key = 56
 
-[node name="9" parent="Keyboard/Number Row" unique_id=1780285920 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro9" parent="Keyboard/Number Row" unique_id=47525547 instance=ExtResource("1_tp6fx")]
 position = Vector2(32.5, -37.5)
 target_key = 57
 
-[node name="0" parent="Keyboard/Number Row" unique_id=1551046705 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Macro0" parent="Keyboard/Number Row" unique_id=182380896 instance=ExtResource("1_tp6fx")]
 position = Vector2(50.5, -37.5)
 target_key = 48
 
-[node name="Minus" parent="Keyboard/Number Row" unique_id=1221044049 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Other" type="Node2D" parent="Keyboard" unique_id=611101517]
+position = Vector2(7, 0)
+
+[node name="Escape" parent="Keyboard/Other" unique_id=234021412 instance=ExtResource("1_tp6fx")]
+position = Vector2(-129.5, -37.5)
+name_overwrite = "Esc"
+target_key = 4194305
+
+[node name="Comma" parent="Keyboard/Other" unique_id=747094370 instance=ExtResource("1_tp6fx")]
+position = Vector2(36.5, 16.5)
+name_overwrite = ","
+target_key = 44
+
+[node name="Period" parent="Keyboard/Other" unique_id=1404053394 instance=ExtResource("1_tp6fx")]
+position = Vector2(54.5, 16.5)
+name_overwrite = "."
+target_key = 46
+
+[node name="Slash" parent="Keyboard/Other" unique_id=1967207945 instance=ExtResource("1_tp6fx")]
+position = Vector2(72.5, 16.5)
+name_overwrite = "/"
+target_key = 47
+
+[node name="Semicolon" parent="Keyboard/Other" unique_id=135649799 instance=ExtResource("1_tp6fx")]
+position = Vector2(65.5, -1.5)
+name_overwrite = ";"
+target_key = 59
+
+[node name="Apostrophe" parent="Keyboard/Other" unique_id=89280481 instance=ExtResource("1_tp6fx")]
+position = Vector2(83.5, -1.5)
+name_overwrite = "'"
+target_key = 39
+
+[node name="Left Bracket" parent="Keyboard/Other" unique_id=451416658 instance=ExtResource("1_tp6fx")]
+position = Vector2(74.5, -19.5)
+name_overwrite = "["
+target_key = 91
+
+[node name="Right Bracket" parent="Keyboard/Other" unique_id=1569146700 instance=ExtResource("1_tp6fx")]
+position = Vector2(92.5, -19.5)
+name_overwrite = "]"
+target_key = 93
+
+[node name="Minus" parent="Keyboard/Other" unique_id=254589267 instance=ExtResource("1_tp6fx")]
 position = Vector2(68.5, -37.5)
 name_overwrite = "-"
 target_key = 45
 
-[node name="Equals" parent="Keyboard/Number Row" unique_id=2087119838 instance=ExtResource("1_tp6fx")]
-modulate = Color(1, 1, 1, 0.1)
+[node name="Equals" parent="Keyboard/Other" unique_id=579500112 instance=ExtResource("1_tp6fx")]
 position = Vector2(86.5, -37.5)
 name_overwrite = "="
 target_key = 61
+
+[node name="Weird Shaped" type="Node2D" parent="Keyboard" unique_id=942000700]
+position = Vector2(7, 0)
+
+[node name="Spacebar" parent="Keyboard/Weird Shaped" unique_id=36646076 instance=ExtResource("4_rthbk")]
+position = Vector2(-16, 34.5)
+
+[node name="Backspace" parent="Keyboard/Weird Shaped" unique_id=1953676985 instance=ExtResource("5_swrkl")]
+position = Vector2(110.5, -37.5)
+name_overwrite = "<-"
+target_key = 4194308
+
+[node name="Backslash" parent="Keyboard/Weird Shaped" unique_id=263774815 instance=ExtResource("6_dtepm")]
+position = Vector2(113.5, -19.5)
+
+[node name="Enter" parent="Keyboard/Weird Shaped" unique_id=724488028 instance=ExtResource("7_csj70")]
+position = Vector2(109, -1.5)
+
+[node name="Right Shift" parent="Keyboard/Weird Shaped" unique_id=653182228 instance=ExtResource("8_oyhre")]
+position = Vector2(103.5, 16.5)
+
+[node name="Alt" parent="Keyboard/Weird Shaped" unique_id=1748210220 instance=ExtResource("6_ikr7f")]
+position = Vector2(56.5, 34.5)
+
+[node name="Control" parent="Keyboard/Weird Shaped" unique_id=1752711164 instance=ExtResource("6_ikr7f")]
+position = Vector2(76.5, 34.5)
+
+[node name="Control2" parent="Keyboard/Weird Shaped" unique_id=750738111 instance=ExtResource("6_ikr7f")]
+position = Vector2(96.5, 34.5)
+
+[node name="Control3" parent="Keyboard/Weird Shaped" unique_id=515845436 instance=ExtResource("6_ikr7f")]
+position = Vector2(116.5, 34.5)
+
+[node name="Left Alt" parent="Keyboard/Weird Shaped" unique_id=2015970540 instance=ExtResource("6_ikr7f")]
+position = Vector2(-88.5, 34.5)
+
+[node name="Super" parent="Keyboard/Weird Shaped" unique_id=1486373500 instance=ExtResource("6_ikr7f")]
+position = Vector2(-108.5, 34.5)
+
+[node name="Left Control" parent="Keyboard/Weird Shaped" unique_id=1038633509 instance=ExtResource("6_ikr7f")]
+position = Vector2(-128.5, 34.5)
+
+[node name="Tab" parent="Keyboard/Weird Shaped" unique_id=690010287 instance=ExtResource("10_omdst")]
+position = Vector2(-126.5, -19.5)
+
+[node name="Capslock" parent="Keyboard/Weird Shaped" unique_id=1029561820 instance=ExtResource("11_gtxdj")]
+position = Vector2(-122, -1.5)
+
+[node name="Left Shift" parent="Keyboard/Weird Shaped" unique_id=940870187 instance=ExtResource("12_3mfwe")]
+position = Vector2(-118.5, 16.5)
 
 [node name="TestKeycaps" type="Sprite2D" parent="Keyboard" unique_id=1114760732]
 modulate = Color(1, 1, 1, 0.11764706)

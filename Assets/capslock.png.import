@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvcqi67wcxeyj"
-path="res://.godot/imported/keycap_shadow.png-bec2be0db11f75315d6c50c6595d9f81.ctex"
+uid="uid://sfbh3lls4ewa"
+path="res://.godot/imported/capslock.png-970aab912e473e3d360bb1fb092731cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/keycap_shadow.png"
-dest_files=["res://.godot/imported/keycap_shadow.png-bec2be0db11f75315d6c50c6595d9f81.ctex"]
+source_file="res://Assets/capslock.png"
+dest_files=["res://.godot/imported/capslock.png-970aab912e473e3d360bb1fb092731cb.ctex"]
 
 [params]
 

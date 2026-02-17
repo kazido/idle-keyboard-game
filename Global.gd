@@ -3,7 +3,7 @@ extends Node
 signal money_changed(new_amount)
 signal key_unlocked(key_code)
 
-var money: int = 10000000000:
+var money: int = 0:
 	set(value):
 		money = value
 		money_changed.emit(money)
@@ -38,7 +38,7 @@ var unlock_order: Array[Key] = [
 	KEY_SHIFT,
 	KEY_TAB
 ]
-var next_key_cost :int = 10
+var next_key_cost: int = 10
 
 func register_key(code: Key, instance: Node2D):
 	key_registry[code] = instance

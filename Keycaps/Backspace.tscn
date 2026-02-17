@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dy53cghmi84vo"]
+
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://Keycaps/Keycap.gd" id="1_fqqkl"]
+[ext_resource type="Texture2D" uid="uid://bkdw8gdtwoy4b" path="res://Assets/backspace.png" id="2_7tu16"]
+
+[sub_resource type="Gradient" id="Gradient_bammy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dtepm"]
+gradient = SubResource("Gradient_bammy")
+width = 31
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csj70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7tu16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Backspace" type="Node2D" unique_id=1953676985]
+script = ExtResource("1_fqqkl")
+
+[node name="Backlight" type="Sprite2D" parent="." unique_id=1187332543]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_dtepm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=780820739]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_csj70")
+
+[node name="Label" type="Label" parent="." unique_id=1434395226]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 1
+vertical_alignment = 1

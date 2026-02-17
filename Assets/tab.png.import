@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://10fdfldb84dy"
-path="res://.godot/imported/rgb_lighting.png-01a50390a99d45402a6835fe34408cd0.ctex"
+uid="uid://cildwh8v10dro"
+path="res://.godot/imported/tab.png-2c6507a453e71e1d6256cdad3f803424.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rgb_lighting.png"
-dest_files=["res://.godot/imported/rgb_lighting.png-01a50390a99d45402a6835fe34408cd0.ctex"]
+source_file="res://Assets/tab.png"
+dest_files=["res://.godot/imported/tab.png-2c6507a453e71e1d6256cdad3f803424.ctex"]
 
 [params]
 
