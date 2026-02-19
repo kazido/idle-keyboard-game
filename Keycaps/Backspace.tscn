@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy53cghmi84vo"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://Keycaps/Keycap.gd" id="1_fqqkl"]
+[ext_resource type="Script" uid="uid://3hhgeiqi6nog" path="res://Scripts/backspace.gd" id="1_fqqkl"]
 [ext_resource type="Texture2D" uid="uid://bkdw8gdtwoy4b" path="res://Assets/backspace.png" id="2_7tu16"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]

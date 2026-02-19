@@ -10,14 +10,13 @@ class_name Keycap
 		_update_visuals()
 
 @export var target_key: Key
+@export var alphabetic: bool = true
 @onready var label = $Label
 @onready var sprite = $AnimatedSprite2D
 
 func _ready() -> void:
 	_update_label()
 	_update_visuals()
-	
-	Global.register_key(target_key, self)
 	
 func _update_label():
 	if not is_inside_tree(): return
@@ -49,15 +48,24 @@ func _unhandled_input(event: InputEvent) -> void:
 			_on_key_up()
 			
 func _on_key_down():
-	sprite.play("pressed")
+	if alphabetic:
+		Global.letter_typed.emit(self)
+	
+	#sprite.play("pressed")
 	#label.scale = Vector2(0.9, 0.9)
-	label.position.y += 1
-	sprite.position.y += 1
 	
 func _on_key_up():
-	sprite.play("default")
+	pass
+	
+	#sprite.play("default")
 	#label.scale = Vector2(1, 1)
-	label.position.y -= 1
-	sprite.position.y -= 1
+	
+	
+func is_alphabetic_regex(text: String) -> bool:
+	var regex = RegEx.new()
+	# ^ means start, $ means end, [a-zA-Z] means only letters
+	# Use + to ensure at least one character is present
+	regex.compile("^[a-zA-Z]+$") 
+	return regex.search(text) != null
 		
 		

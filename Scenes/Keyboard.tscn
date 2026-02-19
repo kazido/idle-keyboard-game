@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://yi41qtvv27tb"]
 
 [ext_resource type="Texture2D" uid="uid://c8y4cuahmfdn7" path="res://Assets/keyboard.png" id="1_3tvup"]
-[ext_resource type="Texture2D" uid="uid://cfb772ojlgyaf" path="res://Assets/keyboard_cable.png" id="1_b0l4n"]
 [ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://Keycaps/Keycap.tscn" id="1_tp6fx"]
 [ext_resource type="Texture2D" uid="uid://d2a2w6stxxq1t" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
 [ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://Keycaps/Spacebar.tscn" id="4_rthbk"]
@@ -52,273 +51,301 @@ func _apply_rainbow_wave():
 				
 "
 
-[node name="Node" type="Node2D" unique_id=714098873]
+[node name="Keyboard" type="Sprite2D" unique_id=168125092]
 scale = Vector2(2, 2)
-
-[node name="Cable" type="Sprite2D" parent="." unique_id=1788729733]
-position = Vector2(-121, -149)
-texture = ExtResource("1_b0l4n")
-
-[node name="Keyboard" type="Sprite2D" parent="." unique_id=168125092]
-position = Vector2(-7, 0)
 texture = ExtResource("1_3tvup")
 script = SubResource("GDScript_b0l4n")
 current_mode = 1
 
-[node name="Keycaps" type="Node2D" parent="Keyboard" unique_id=1815924809]
+[node name="Keycaps" type="Node2D" parent="." unique_id=1815924809]
 position = Vector2(0.5, -0.5)
 
-[node name="G" parent="Keyboard/Keycaps" unique_id=1864117511 instance=ExtResource("1_tp6fx")]
+[node name="G" parent="Keycaps" unique_id=1864117511 instance=ExtResource("1_tp6fx")]
 position = Vector2(-18, -1)
 target_key = 71
 
-[node name="H" parent="Keyboard/Keycaps" unique_id=1680108553 instance=ExtResource("1_tp6fx")]
+[node name="H" parent="Keycaps" unique_id=1680108553 instance=ExtResource("1_tp6fx")]
 position = Vector2(0, -1)
 target_key = 72
 
-[node name="F" parent="Keyboard/Keycaps" unique_id=1931038734 instance=ExtResource("1_tp6fx")]
+[node name="F" parent="Keycaps" unique_id=1931038734 instance=ExtResource("1_tp6fx")]
 position = Vector2(-36, -1)
 target_key = 70
 
-[node name="J" parent="Keyboard/Keycaps" unique_id=1213908858 instance=ExtResource("1_tp6fx")]
+[node name="J" parent="Keycaps" unique_id=1213908858 instance=ExtResource("1_tp6fx")]
 position = Vector2(18, -1)
 target_key = 74
 
-[node name="D" parent="Keyboard/Keycaps" unique_id=1037075287 instance=ExtResource("1_tp6fx")]
+[node name="D" parent="Keycaps" unique_id=1037075287 instance=ExtResource("1_tp6fx")]
 position = Vector2(-54, -1)
 target_key = 68
 
-[node name="K" parent="Keyboard/Keycaps" unique_id=1908506534 instance=ExtResource("1_tp6fx")]
+[node name="K" parent="Keycaps" unique_id=1908506534 instance=ExtResource("1_tp6fx")]
 position = Vector2(36, -1)
 target_key = 75
 
-[node name="S" parent="Keyboard/Keycaps" unique_id=1865005823 instance=ExtResource("1_tp6fx")]
+[node name="S" parent="Keycaps" unique_id=1865005823 instance=ExtResource("1_tp6fx")]
 position = Vector2(-72, -1)
 target_key = 83
 
-[node name="L" parent="Keyboard/Keycaps" unique_id=368009364 instance=ExtResource("1_tp6fx")]
+[node name="L" parent="Keycaps" unique_id=368009364 instance=ExtResource("1_tp6fx")]
 position = Vector2(54, -1)
 target_key = 76
 
-[node name="A" parent="Keyboard/Keycaps" unique_id=536237657 instance=ExtResource("1_tp6fx")]
+[node name="A" parent="Keycaps" unique_id=536237657 instance=ExtResource("1_tp6fx")]
 position = Vector2(-90, -1)
 target_key = 65
 
-[node name="T" parent="Keyboard/Keycaps" unique_id=1403192171 instance=ExtResource("1_tp6fx")]
+[node name="T" parent="Keycaps" unique_id=1403192171 instance=ExtResource("1_tp6fx")]
 position = Vector2(-27, -19)
 target_key = 84
 
-[node name="Y" parent="Keyboard/Keycaps" unique_id=1751798487 instance=ExtResource("1_tp6fx")]
+[node name="Y" parent="Keycaps" unique_id=1751798487 instance=ExtResource("1_tp6fx")]
 position = Vector2(-9, -19)
 target_key = 89
 
-[node name="R" parent="Keyboard/Keycaps" unique_id=1096142773 instance=ExtResource("1_tp6fx")]
+[node name="R" parent="Keycaps" unique_id=1096142773 instance=ExtResource("1_tp6fx")]
 position = Vector2(-45, -19)
 target_key = 82
 
-[node name="U" parent="Keyboard/Keycaps" unique_id=1008570255 instance=ExtResource("1_tp6fx")]
+[node name="U" parent="Keycaps" unique_id=1008570255 instance=ExtResource("1_tp6fx")]
 position = Vector2(9, -19)
 target_key = 85
 
-[node name="E" parent="Keyboard/Keycaps" unique_id=513665231 instance=ExtResource("1_tp6fx")]
+[node name="E" parent="Keycaps" unique_id=513665231 instance=ExtResource("1_tp6fx")]
 position = Vector2(-63, -19)
 target_key = 69
 
-[node name="I" parent="Keyboard/Keycaps" unique_id=1450729740 instance=ExtResource("1_tp6fx")]
+[node name="I" parent="Keycaps" unique_id=1450729740 instance=ExtResource("1_tp6fx")]
 position = Vector2(27, -19)
 target_key = 73
 
-[node name="W" parent="Keyboard/Keycaps" unique_id=1552983992 instance=ExtResource("1_tp6fx")]
+[node name="W" parent="Keycaps" unique_id=1552983992 instance=ExtResource("1_tp6fx")]
 position = Vector2(-81, -19)
 target_key = 87
 
-[node name="O" parent="Keyboard/Keycaps" unique_id=921118972 instance=ExtResource("1_tp6fx")]
+[node name="O" parent="Keycaps" unique_id=921118972 instance=ExtResource("1_tp6fx")]
 position = Vector2(45, -19)
 target_key = 79
 
-[node name="Q" parent="Keyboard/Keycaps" unique_id=1060203104 instance=ExtResource("1_tp6fx")]
+[node name="Q" parent="Keycaps" unique_id=1060203104 instance=ExtResource("1_tp6fx")]
 position = Vector2(-99, -19)
 target_key = 81
 
-[node name="P" parent="Keyboard/Keycaps" unique_id=2014074744 instance=ExtResource("1_tp6fx")]
+[node name="P" parent="Keycaps" unique_id=2014074744 instance=ExtResource("1_tp6fx")]
 position = Vector2(63, -19)
 target_key = 80
 
-[node name="B" parent="Keyboard/Keycaps" unique_id=113476759 instance=ExtResource("1_tp6fx")]
+[node name="B" parent="Keycaps" unique_id=113476759 instance=ExtResource("1_tp6fx")]
 position = Vector2(-11, 17)
 target_key = 66
 
-[node name="V" parent="Keyboard/Keycaps" unique_id=582737025 instance=ExtResource("1_tp6fx")]
+[node name="V" parent="Keycaps" unique_id=582737025 instance=ExtResource("1_tp6fx")]
 position = Vector2(-29, 17)
 target_key = 86
 
-[node name="N" parent="Keyboard/Keycaps" unique_id=350762359 instance=ExtResource("1_tp6fx")]
+[node name="N" parent="Keycaps" unique_id=350762359 instance=ExtResource("1_tp6fx")]
 position = Vector2(7, 17)
 target_key = 78
 
-[node name="C" parent="Keyboard/Keycaps" unique_id=1169808341 instance=ExtResource("1_tp6fx")]
+[node name="C" parent="Keycaps" unique_id=1169808341 instance=ExtResource("1_tp6fx")]
 position = Vector2(-47, 17)
 target_key = 67
 
-[node name="M" parent="Keyboard/Keycaps" unique_id=981274936 instance=ExtResource("1_tp6fx")]
+[node name="M" parent="Keycaps" unique_id=981274936 instance=ExtResource("1_tp6fx")]
 position = Vector2(25, 17)
 target_key = 77
 
-[node name="X" parent="Keyboard/Keycaps" unique_id=394609838 instance=ExtResource("1_tp6fx")]
+[node name="X" parent="Keycaps" unique_id=394609838 instance=ExtResource("1_tp6fx")]
 position = Vector2(-65, 17)
 target_key = 88
 
-[node name="Z" parent="Keyboard/Keycaps" unique_id=1220881557 instance=ExtResource("1_tp6fx")]
+[node name="Z" parent="Keycaps" unique_id=1220881557 instance=ExtResource("1_tp6fx")]
 position = Vector2(-83, 17)
 target_key = 90
 
-[node name="Number Row" type="Node2D" parent="Keyboard" unique_id=1010099432]
+[node name="Number Row" type="Node2D" parent="." unique_id=1010099432]
 position = Vector2(7, 0)
 
-[node name="Macro" parent="Keyboard/Number Row" unique_id=449460918 instance=ExtResource("1_tp6fx")]
+[node name="Macro" parent="Number Row" unique_id=449460918 instance=ExtResource("1_tp6fx")]
 position = Vector2(-111.5, -37.5)
 target_key = 49
+alphabetic = false
 
-[node name="Macro2" parent="Keyboard/Number Row" unique_id=1127198804 instance=ExtResource("1_tp6fx")]
+[node name="Macro2" parent="Number Row" unique_id=1127198804 instance=ExtResource("1_tp6fx")]
 position = Vector2(-93.5, -37.5)
 target_key = 50
+alphabetic = false
 
-[node name="Macro3" parent="Keyboard/Number Row" unique_id=1305622815 instance=ExtResource("1_tp6fx")]
+[node name="Macro3" parent="Number Row" unique_id=1305622815 instance=ExtResource("1_tp6fx")]
 position = Vector2(-75.5, -37.5)
 target_key = 51
+alphabetic = false
 
-[node name="Macro4" parent="Keyboard/Number Row" unique_id=374323172 instance=ExtResource("1_tp6fx")]
+[node name="Macro4" parent="Number Row" unique_id=374323172 instance=ExtResource("1_tp6fx")]
 position = Vector2(-57.5, -37.5)
 target_key = 52
+alphabetic = false
 
-[node name="Macro5" parent="Keyboard/Number Row" unique_id=1990141861 instance=ExtResource("1_tp6fx")]
+[node name="Macro5" parent="Number Row" unique_id=1990141861 instance=ExtResource("1_tp6fx")]
 position = Vector2(-39.5, -37.5)
 target_key = 53
+alphabetic = false
 
-[node name="Macro6" parent="Keyboard/Number Row" unique_id=1980950347 instance=ExtResource("1_tp6fx")]
+[node name="Macro6" parent="Number Row" unique_id=1980950347 instance=ExtResource("1_tp6fx")]
 position = Vector2(-21.5, -37.5)
 target_key = 54
+alphabetic = false
 
-[node name="Macro7" parent="Keyboard/Number Row" unique_id=1186341495 instance=ExtResource("1_tp6fx")]
+[node name="Macro7" parent="Number Row" unique_id=1186341495 instance=ExtResource("1_tp6fx")]
 position = Vector2(-3.5, -37.5)
 target_key = 55
+alphabetic = false
 
-[node name="Macro8" parent="Keyboard/Number Row" unique_id=1530416403 instance=ExtResource("1_tp6fx")]
+[node name="Macro8" parent="Number Row" unique_id=1530416403 instance=ExtResource("1_tp6fx")]
 position = Vector2(14.5, -37.5)
 target_key = 56
+alphabetic = false
 
-[node name="Macro9" parent="Keyboard/Number Row" unique_id=47525547 instance=ExtResource("1_tp6fx")]
+[node name="Macro9" parent="Number Row" unique_id=47525547 instance=ExtResource("1_tp6fx")]
 position = Vector2(32.5, -37.5)
 target_key = 57
+alphabetic = false
 
-[node name="Macro0" parent="Keyboard/Number Row" unique_id=182380896 instance=ExtResource("1_tp6fx")]
+[node name="Macro0" parent="Number Row" unique_id=182380896 instance=ExtResource("1_tp6fx")]
 position = Vector2(50.5, -37.5)
 target_key = 48
+alphabetic = false
 
-[node name="Other" type="Node2D" parent="Keyboard" unique_id=611101517]
+[node name="Other" type="Node2D" parent="." unique_id=611101517]
 position = Vector2(7, 0)
 
-[node name="Escape" parent="Keyboard/Other" unique_id=234021412 instance=ExtResource("1_tp6fx")]
+[node name="Escape" parent="Other" unique_id=234021412 instance=ExtResource("1_tp6fx")]
 position = Vector2(-129.5, -37.5)
 name_overwrite = "Esc"
 target_key = 4194305
+alphabetic = false
 
-[node name="Comma" parent="Keyboard/Other" unique_id=747094370 instance=ExtResource("1_tp6fx")]
+[node name="Comma" parent="Other" unique_id=747094370 instance=ExtResource("1_tp6fx")]
 position = Vector2(36.5, 16.5)
 name_overwrite = ","
 target_key = 44
+alphabetic = false
 
-[node name="Period" parent="Keyboard/Other" unique_id=1404053394 instance=ExtResource("1_tp6fx")]
+[node name="Period" parent="Other" unique_id=1404053394 instance=ExtResource("1_tp6fx")]
 position = Vector2(54.5, 16.5)
 name_overwrite = "."
 target_key = 46
+alphabetic = false
 
-[node name="Slash" parent="Keyboard/Other" unique_id=1967207945 instance=ExtResource("1_tp6fx")]
+[node name="Slash" parent="Other" unique_id=1967207945 instance=ExtResource("1_tp6fx")]
 position = Vector2(72.5, 16.5)
 name_overwrite = "/"
 target_key = 47
+alphabetic = false
 
-[node name="Semicolon" parent="Keyboard/Other" unique_id=135649799 instance=ExtResource("1_tp6fx")]
+[node name="Semicolon" parent="Other" unique_id=135649799 instance=ExtResource("1_tp6fx")]
 position = Vector2(65.5, -1.5)
 name_overwrite = ";"
 target_key = 59
+alphabetic = false
 
-[node name="Apostrophe" parent="Keyboard/Other" unique_id=89280481 instance=ExtResource("1_tp6fx")]
+[node name="Apostrophe" parent="Other" unique_id=89280481 instance=ExtResource("1_tp6fx")]
 position = Vector2(83.5, -1.5)
 name_overwrite = "'"
 target_key = 39
+alphabetic = false
 
-[node name="Left Bracket" parent="Keyboard/Other" unique_id=451416658 instance=ExtResource("1_tp6fx")]
+[node name="Left Bracket" parent="Other" unique_id=451416658 instance=ExtResource("1_tp6fx")]
 position = Vector2(74.5, -19.5)
 name_overwrite = "["
 target_key = 91
+alphabetic = false
 
-[node name="Right Bracket" parent="Keyboard/Other" unique_id=1569146700 instance=ExtResource("1_tp6fx")]
+[node name="Right Bracket" parent="Other" unique_id=1569146700 instance=ExtResource("1_tp6fx")]
 position = Vector2(92.5, -19.5)
 name_overwrite = "]"
 target_key = 93
+alphabetic = false
 
-[node name="Minus" parent="Keyboard/Other" unique_id=254589267 instance=ExtResource("1_tp6fx")]
+[node name="Minus" parent="Other" unique_id=254589267 instance=ExtResource("1_tp6fx")]
 position = Vector2(68.5, -37.5)
 name_overwrite = "-"
 target_key = 45
+alphabetic = false
 
-[node name="Equals" parent="Keyboard/Other" unique_id=579500112 instance=ExtResource("1_tp6fx")]
+[node name="Equals" parent="Other" unique_id=579500112 instance=ExtResource("1_tp6fx")]
 position = Vector2(86.5, -37.5)
 name_overwrite = "="
 target_key = 61
+alphabetic = false
 
-[node name="Weird Shaped" type="Node2D" parent="Keyboard" unique_id=942000700]
+[node name="Weird Shaped" type="Node2D" parent="." unique_id=942000700]
 position = Vector2(7, 0)
 
-[node name="Spacebar" parent="Keyboard/Weird Shaped" unique_id=36646076 instance=ExtResource("4_rthbk")]
+[node name="Spacebar" parent="Weird Shaped" unique_id=36646076 instance=ExtResource("4_rthbk")]
 position = Vector2(-16, 34.5)
+alphabetic = false
 
-[node name="Backspace" parent="Keyboard/Weird Shaped" unique_id=1953676985 instance=ExtResource("5_swrkl")]
+[node name="Backspace" parent="Weird Shaped" unique_id=1953676985 instance=ExtResource("5_swrkl")]
 position = Vector2(110.5, -37.5)
 name_overwrite = "<-"
 target_key = 4194308
+alphabetic = false
 
-[node name="Backslash" parent="Keyboard/Weird Shaped" unique_id=263774815 instance=ExtResource("6_dtepm")]
+[node name="Backslash" parent="Weird Shaped" unique_id=263774815 instance=ExtResource("6_dtepm")]
 position = Vector2(113.5, -19.5)
+alphabetic = false
 
-[node name="Enter" parent="Keyboard/Weird Shaped" unique_id=724488028 instance=ExtResource("7_csj70")]
+[node name="Enter" parent="Weird Shaped" unique_id=724488028 instance=ExtResource("7_csj70")]
 position = Vector2(109, -1.5)
+alphabetic = false
 
-[node name="Right Shift" parent="Keyboard/Weird Shaped" unique_id=653182228 instance=ExtResource("8_oyhre")]
+[node name="Right Shift" parent="Weird Shaped" unique_id=653182228 instance=ExtResource("8_oyhre")]
 position = Vector2(103.5, 16.5)
+alphabetic = false
 
-[node name="Alt" parent="Keyboard/Weird Shaped" unique_id=1748210220 instance=ExtResource("6_ikr7f")]
+[node name="Alt" parent="Weird Shaped" unique_id=1748210220 instance=ExtResource("6_ikr7f")]
 position = Vector2(56.5, 34.5)
+alphabetic = false
 
-[node name="Control" parent="Keyboard/Weird Shaped" unique_id=1752711164 instance=ExtResource("6_ikr7f")]
+[node name="Control" parent="Weird Shaped" unique_id=1752711164 instance=ExtResource("6_ikr7f")]
 position = Vector2(76.5, 34.5)
+alphabetic = false
 
-[node name="Control2" parent="Keyboard/Weird Shaped" unique_id=750738111 instance=ExtResource("6_ikr7f")]
+[node name="Control2" parent="Weird Shaped" unique_id=750738111 instance=ExtResource("6_ikr7f")]
 position = Vector2(96.5, 34.5)
+alphabetic = false
 
-[node name="Control3" parent="Keyboard/Weird Shaped" unique_id=515845436 instance=ExtResource("6_ikr7f")]
+[node name="Control3" parent="Weird Shaped" unique_id=515845436 instance=ExtResource("6_ikr7f")]
 position = Vector2(116.5, 34.5)
+alphabetic = false
 
-[node name="Left Alt" parent="Keyboard/Weird Shaped" unique_id=2015970540 instance=ExtResource("6_ikr7f")]
+[node name="Left Alt" parent="Weird Shaped" unique_id=2015970540 instance=ExtResource("6_ikr7f")]
 position = Vector2(-88.5, 34.5)
+alphabetic = false
 
-[node name="Super" parent="Keyboard/Weird Shaped" unique_id=1486373500 instance=ExtResource("6_ikr7f")]
+[node name="Super" parent="Weird Shaped" unique_id=1486373500 instance=ExtResource("6_ikr7f")]
 position = Vector2(-108.5, 34.5)
+alphabetic = false
 
-[node name="Left Control" parent="Keyboard/Weird Shaped" unique_id=1038633509 instance=ExtResource("6_ikr7f")]
+[node name="Left Control" parent="Weird Shaped" unique_id=1038633509 instance=ExtResource("6_ikr7f")]
 position = Vector2(-128.5, 34.5)
+alphabetic = false
 
-[node name="Tab" parent="Keyboard/Weird Shaped" unique_id=690010287 instance=ExtResource("10_omdst")]
+[node name="Tab" parent="Weird Shaped" unique_id=690010287 instance=ExtResource("10_omdst")]
 position = Vector2(-126.5, -19.5)
+alphabetic = false
 
-[node name="Capslock" parent="Keyboard/Weird Shaped" unique_id=1029561820 instance=ExtResource("11_gtxdj")]
+[node name="Capslock" parent="Weird Shaped" unique_id=1029561820 instance=ExtResource("11_gtxdj")]
 position = Vector2(-122, -1.5)
+alphabetic = false
 
-[node name="Left Shift" parent="Keyboard/Weird Shaped" unique_id=940870187 instance=ExtResource("12_3mfwe")]
+[node name="Left Shift" parent="Weird Shaped" unique_id=940870187 instance=ExtResource("12_3mfwe")]
 position = Vector2(-118.5, 16.5)
+alphabetic = false
 
-[node name="TestKeycaps" type="Sprite2D" parent="Keyboard" unique_id=1114760732]
+[node name="TestKeycaps" type="Sprite2D" parent="." unique_id=1114760732]
 modulate = Color(1, 1, 1, 0.11764706)
 position = Vector2(1.5, -1.5)
 texture = ExtResource("2_4j2i2")
