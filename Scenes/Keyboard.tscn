@@ -289,9 +289,6 @@ alphabetic = false
 
 [node name="Backspace" parent="Weird Shaped" unique_id=1953676985 instance=ExtResource("5_swrkl")]
 position = Vector2(110.5, -37.5)
-name_overwrite = "<-"
-target_key = 4194308
-alphabetic = false
 
 [node name="Backslash" parent="Weird Shaped" unique_id=263774815 instance=ExtResource("6_dtepm")]
 position = Vector2(113.5, -19.5)
@@ -299,7 +296,6 @@ alphabetic = false
 
 [node name="Enter" parent="Weird Shaped" unique_id=724488028 instance=ExtResource("7_csj70")]
 position = Vector2(109, -1.5)
-alphabetic = false
 
 [node name="Right Shift" parent="Weird Shaped" unique_id=653182228 instance=ExtResource("8_oyhre")]
 position = Vector2(103.5, 16.5)

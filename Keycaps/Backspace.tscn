@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy53cghmi84vo"]
 
-[ext_resource type="Script" uid="uid://3hhgeiqi6nog" path="res://Scripts/backspace.gd" id="1_fqqkl"]
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://Keycaps/Keycap.gd" id="1_fqqkl"]
 [ext_resource type="Texture2D" uid="uid://bkdw8gdtwoy4b" path="res://Assets/backspace.png" id="2_7tu16"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]
@@ -47,9 +47,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0
+offset_left = -20.0
 offset_top = -14.0
-offset_right = 18.0
+offset_right = 20.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -57,5 +57,6 @@ pivot_offset = Vector2(20, 14)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
 theme_override_font_sizes/font_size = 4
+text = "Backspace"
 horizontal_alignment = 1
 vertical_alignment = 1

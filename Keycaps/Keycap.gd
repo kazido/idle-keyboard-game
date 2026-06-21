@@ -2,36 +2,27 @@ extends Node2D
 
 class_name Keycap
 
-@export var name_overwrite: String = ""
-
-@export var is_unlocked: bool = true:
-	set(value):
-		is_unlocked = value
-		_update_visuals()
-
 @export var target_key: Key
+@export var name_overwrite: String = ""
 @export var alphabetic: bool = true
 @onready var label = $Label
 @onready var sprite = $AnimatedSprite2D
 
+@export var is_unlocked: bool = true
+var value: int = 1
+var multiplier: int = 1
+
+
 func _ready() -> void:
 	_update_label()
-	_update_visuals()
+	if not is_unlocked:
+		modulate.a = 0.1
 	
 func _update_label():
 	if not is_inside_tree(): return
 	# Converts KeyCode to String for the label
 	if $Label.text: return
 	$Label.text = name_overwrite if name_overwrite else OS.get_keycode_string(target_key)
-	
-	
-func _update_visuals():
-	if not is_inside_tree(): return
-	# Handle changing the visuals.
-	if is_unlocked:
-		modulate.a = 1.0
-	else:
-		modulate.a = 0.1
 		
 		
 func set_light_color(color: Color):
@@ -47,16 +38,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			_on_key_up()
 			
+			
 func _on_key_down():
 	if alphabetic:
-		Global.letter_typed.emit(self)
+		Global.type_letter(self)
 	
 	#sprite.play("pressed")
 	#label.scale = Vector2(0.9, 0.9)
 	
 func _on_key_up():
 	pass
-	
 	#sprite.play("default")
 	#label.scale = Vector2(1, 1)
 	
