@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://4b7jmj88srro"]
+
+[ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://Themes/main_theme.tres" id="1_su28o"]
+
+[node name="DayCompleted" type="CanvasLayer" unique_id=1129403177]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=71329078]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23921569, 0.6039216, 0.1882353, 0.47843137)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=2058547712]
+offset_top = 174.0
+offset_right = 1152.0
+offset_bottom = 287.0
+theme = ExtResource("1_su28o")
+theme_override_font_sizes/font_size = 100
+text = "DAY COMPLETE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1990054806]
+custom_minimum_size = Vector2(20, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 26.0
+offset_right = 100.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Next Day"
+metadata/_edit_use_anchors_ = true

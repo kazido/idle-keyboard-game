@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://d2a2w6stxxq1t" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
 [ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://Keycaps/Spacebar.tscn" id="4_rthbk"]
 [ext_resource type="PackedScene" uid="uid://dy53cghmi84vo" path="res://Keycaps/Backspace.tscn" id="5_swrkl"]
-[ext_resource type="PackedScene" uid="uid://br6j888yr3yj7" path="res://Scenes/Backslash.tscn" id="6_dtepm"]
-[ext_resource type="PackedScene" uid="uid://clfugrjki4y68" path="res://Scenes/Modifier.tscn" id="6_ikr7f"]
-[ext_resource type="PackedScene" uid="uid://b1lgjvashoc6x" path="res://Scenes/Enter.tscn" id="7_csj70"]
-[ext_resource type="PackedScene" uid="uid://bvgkxqel877fa" path="res://Scenes/RightShift.tscn" id="8_oyhre"]
-[ext_resource type="PackedScene" uid="uid://ch3brhcetlyqn" path="res://Scenes/Tab.tscn" id="10_omdst"]
-[ext_resource type="PackedScene" uid="uid://40wucmn8583g" path="res://Scenes/Capslock.tscn" id="11_gtxdj"]
-[ext_resource type="PackedScene" uid="uid://bqs3rqntb83ry" path="res://Scenes/LeftShift.tscn" id="12_3mfwe"]
+[ext_resource type="PackedScene" uid="uid://br6j888yr3yj7" path="res://Scenes/Keyboard/Backslash.tscn" id="6_dtepm"]
+[ext_resource type="PackedScene" uid="uid://clfugrjki4y68" path="res://Scenes/Keyboard/Modifier.tscn" id="6_ikr7f"]
+[ext_resource type="PackedScene" uid="uid://b1lgjvashoc6x" path="res://Scenes/Keyboard/Enter.tscn" id="7_csj70"]
+[ext_resource type="PackedScene" uid="uid://bvgkxqel877fa" path="res://Scenes/Keyboard/RightShift.tscn" id="8_oyhre"]
+[ext_resource type="PackedScene" uid="uid://ch3brhcetlyqn" path="res://Scenes/Keyboard/Tab.tscn" id="10_omdst"]
+[ext_resource type="PackedScene" uid="uid://40wucmn8583g" path="res://Scenes/Keyboard/Capslock.tscn" id="11_gtxdj"]
+[ext_resource type="PackedScene" uid="uid://bqs3rqntb83ry" path="res://Scenes/Keyboard/LeftShift.tscn" id="12_3mfwe"]
 
 [sub_resource type="GDScript" id="GDScript_b0l4n"]
 resource_name = "Keyboard"
@@ -55,7 +55,6 @@ func _apply_rainbow_wave():
 scale = Vector2(2, 2)
 texture = ExtResource("1_3tvup")
 script = SubResource("GDScript_b0l4n")
-current_mode = 1
 
 [node name="Keycaps" type="Node2D" parent="." unique_id=1815924809]
 position = Vector2(0.5, -0.5)
@@ -222,62 +221,62 @@ position = Vector2(7, 0)
 
 [node name="Escape" parent="Other" unique_id=234021412 instance=ExtResource("1_tp6fx")]
 position = Vector2(-129.5, -37.5)
-name_overwrite = "Esc"
 target_key = 4194305
+name_overwrite = "Esc"
 alphabetic = false
 
 [node name="Comma" parent="Other" unique_id=747094370 instance=ExtResource("1_tp6fx")]
 position = Vector2(36.5, 16.5)
-name_overwrite = ","
 target_key = 44
+name_overwrite = ","
 alphabetic = false
 
 [node name="Period" parent="Other" unique_id=1404053394 instance=ExtResource("1_tp6fx")]
 position = Vector2(54.5, 16.5)
-name_overwrite = "."
 target_key = 46
+name_overwrite = "."
 alphabetic = false
 
 [node name="Slash" parent="Other" unique_id=1967207945 instance=ExtResource("1_tp6fx")]
 position = Vector2(72.5, 16.5)
-name_overwrite = "/"
 target_key = 47
+name_overwrite = "/"
 alphabetic = false
 
 [node name="Semicolon" parent="Other" unique_id=135649799 instance=ExtResource("1_tp6fx")]
 position = Vector2(65.5, -1.5)
-name_overwrite = ";"
 target_key = 59
+name_overwrite = ";"
 alphabetic = false
 
 [node name="Apostrophe" parent="Other" unique_id=89280481 instance=ExtResource("1_tp6fx")]
 position = Vector2(83.5, -1.5)
-name_overwrite = "'"
 target_key = 39
+name_overwrite = "'"
 alphabetic = false
 
 [node name="Left Bracket" parent="Other" unique_id=451416658 instance=ExtResource("1_tp6fx")]
 position = Vector2(74.5, -19.5)
-name_overwrite = "["
 target_key = 91
+name_overwrite = "["
 alphabetic = false
 
 [node name="Right Bracket" parent="Other" unique_id=1569146700 instance=ExtResource("1_tp6fx")]
 position = Vector2(92.5, -19.5)
-name_overwrite = "]"
 target_key = 93
+name_overwrite = "]"
 alphabetic = false
 
 [node name="Minus" parent="Other" unique_id=254589267 instance=ExtResource("1_tp6fx")]
 position = Vector2(68.5, -37.5)
-name_overwrite = "-"
 target_key = 45
+name_overwrite = "-"
 alphabetic = false
 
 [node name="Equals" parent="Other" unique_id=579500112 instance=ExtResource("1_tp6fx")]
 position = Vector2(86.5, -37.5)
-name_overwrite = "="
 target_key = 61
+name_overwrite = "="
 alphabetic = false
 
 [node name="Weird Shaped" type="Node2D" parent="." unique_id=942000700]

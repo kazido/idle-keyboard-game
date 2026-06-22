@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Global="*uid://b76witqer6ypq"
 ValidWords="*uid://bcnxt1jfd61wl"
+WordManager="*uid://bvxpcp0gay34n"
+GameState="*uid://dq2g61baw6287"
 
 [display]
 

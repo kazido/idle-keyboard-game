@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blen6hpoa4nv8"]
 
-[ext_resource type="Script" uid="uid://c1cle3e8k8wkw" path="res://Scenes/UI.gd" id="1_nxvpl"]
+[ext_resource type="Script" uid="uid://c1cle3e8k8wkw" path="res://Scripts/UI.gd" id="1_nxvpl"]
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://Themes/main_theme.tres" id="1_w371h"]
 
 [node name="UI" type="CanvasLayer" unique_id=625124063]
@@ -32,7 +32,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Word List/VBoxContainer/MarginContainer" unique_id=1006324804]
+[node name="TitleLabel" type="Label" parent="Word List/VBoxContainer/MarginContainer" unique_id=1006324804]
 layout_mode = 2
 theme = ExtResource("1_w371h")
 theme_override_colors/font_color = Color(0.93500715, 0.90466106, 0.27363628, 1)
@@ -43,9 +43,28 @@ text = "Submitted Words"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Words" type="VBoxContainer" parent="Word List/VBoxContainer" unique_id=633324545]
+[node name="SubmittedWords" type="VBoxContainer" parent="Word List/VBoxContainer" unique_id=633324545]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Word List/VBoxContainer" unique_id=2035227676]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="WordsRemainingLabel" type="Label" parent="Word List/VBoxContainer/MarginContainer2" unique_id=1547745053]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("1_w371h")
+theme_override_colors/font_color = Color(0.93500715, 0.90466106, 0.27363628, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7294118)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "words remaining"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Day Counter" type="MarginContainer" parent="." unique_id=1859911867]
 offset_left = 4.0

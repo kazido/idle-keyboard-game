@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 func _on_key_down():
 	if alphabetic:
-		Global.type_letter(self)
+		WordManager.type_letter(self)
 	
 	#sprite.play("pressed")
 	#label.scale = Vector2(0.9, 0.9)
