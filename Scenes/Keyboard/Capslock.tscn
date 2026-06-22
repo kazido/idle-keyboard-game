@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://40wucmn8583g"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://Keycaps/Keycap.gd" id="1_warsw"]
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_warsw"]
 [ext_resource type="Texture2D" uid="uid://sfbh3lls4ewa" path="res://Assets/capslock.png" id="2_warsw"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]

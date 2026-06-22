@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://yi41qtvv27tb"]
 
 [ext_resource type="Texture2D" uid="uid://c8y4cuahmfdn7" path="res://Assets/keyboard.png" id="1_3tvup"]
-[ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://Keycaps/Keycap.tscn" id="1_tp6fx"]
+[ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://keyboard/keycaps/keycap.tscn" id="1_tp6fx"]
 [ext_resource type="Texture2D" uid="uid://d2a2w6stxxq1t" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
-[ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://Keycaps/Spacebar.tscn" id="4_rthbk"]
-[ext_resource type="PackedScene" uid="uid://dy53cghmi84vo" path="res://Keycaps/Backspace.tscn" id="5_swrkl"]
+[ext_resource type="Script" uid="uid://sio10fafrf5v" path="res://keyboard/keyboard.gd" id="2_l75x6"]
+[ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://keyboard/keycaps/spacebar.tscn" id="4_rthbk"]
+[ext_resource type="PackedScene" uid="uid://dy53cghmi84vo" path="res://keyboard/keycaps/backspace.tscn" id="5_swrkl"]
 [ext_resource type="PackedScene" uid="uid://br6j888yr3yj7" path="res://Scenes/Keyboard/Backslash.tscn" id="6_dtepm"]
 [ext_resource type="PackedScene" uid="uid://clfugrjki4y68" path="res://Scenes/Keyboard/Modifier.tscn" id="6_ikr7f"]
 [ext_resource type="PackedScene" uid="uid://b1lgjvashoc6x" path="res://Scenes/Keyboard/Enter.tscn" id="7_csj70"]
@@ -13,48 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://40wucmn8583g" path="res://Scenes/Keyboard/Capslock.tscn" id="11_gtxdj"]
 [ext_resource type="PackedScene" uid="uid://bqs3rqntb83ry" path="res://Scenes/Keyboard/LeftShift.tscn" id="12_3mfwe"]
 
-[sub_resource type="GDScript" id="GDScript_b0l4n"]
-resource_name = "Keyboard"
-script/source = "extends Node2D
-
-enum LightMode { STATIC, RAINBOW_WAVE, PULSE, OFF}
-
-@export var current_mode: LightMode = LightMode.OFF
-
-@export_category(\"Rainbow Wave Settings\")
-@export var wave_speed: float = 0.5
-@export var wave_frequency: float = 0.001
-
-
-func _ready() -> void:
-	for key_set in get_children():
-		for key in key_set.get_children():
-			if not key.is_unlocked and key.has_method(\"set_light_color\"):
-				key.set_light_color(Color.BLACK)
-
-func _process(_delta: float):
-	match current_mode:
-		LightMode.RAINBOW_WAVE:
-			_apply_rainbow_wave()
-			
-			
-func _apply_rainbow_wave():
-	var time = Time.get_ticks_msec() * 0.001
-	
-	for key_set in get_children():
-		for key in key_set.get_children():
-			if key.is_unlocked and key.has_method(\"set_light_color\"):
-				var hue = fmod((key.position.x * wave_frequency) + (time * wave_speed), 1.0)
-				
-				var new_color = Color.from_hsv(hue, 0.8, 1.0)
-				key.set_light_color(new_color)
-				
-"
-
 [node name="Keyboard" type="Sprite2D" unique_id=168125092]
 scale = Vector2(2, 2)
 texture = ExtResource("1_3tvup")
-script = SubResource("GDScript_b0l4n")
+script = ExtResource("2_l75x6")
 
 [node name="Keycaps" type="Node2D" parent="." unique_id=1815924809]
 position = Vector2(0.5, -0.5)

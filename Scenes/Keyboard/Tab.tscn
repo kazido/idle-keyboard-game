@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch3brhcetlyqn"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://Keycaps/Keycap.gd" id="1_qq3vb"]
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_qq3vb"]
 [ext_resource type="Texture2D" uid="uid://cildwh8v10dro" path="res://Assets/tab.png" id="2_qq3vb"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]

@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://4b7jmj88srro"]
 
+[ext_resource type="Script" uid="uid://ci2f5qx2jcmrg" path="res://Scripts/DayComplete.gd" id="1_4cunn"]
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://Themes/main_theme.tres" id="1_su28o"]
 
 [node name="DayCompleted" type="CanvasLayer" unique_id=1129403177]
+process_mode = 3
+layer = 10
+script = ExtResource("1_4cunn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=71329078]
 anchors_preset = 15
@@ -40,3 +44,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Next Day"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

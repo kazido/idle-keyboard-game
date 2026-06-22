@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://clfugrjki4y68"]
+[gd_scene format=3 uid="uid://bpgexwjvjorra"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_mwr3w"]
-[ext_resource type="Texture2D" uid="uid://55yuyd3816b0" path="res://Assets/modifier.png" id="2_8cw68"]
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_brbpy"]
+[ext_resource type="Texture2D" uid="uid://c5db0jo45qtwn" path="res://Assets/keycap1.png" id="2_yguhf"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]
 offsets = PackedFloat32Array(1)
@@ -9,36 +9,36 @@ colors = PackedColorArray(1, 1, 1, 0.47058824)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fgoes"]
 gradient = SubResource("Gradient_bammy")
-width = 20
+width = 18
 height = 18
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wd44e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1uiu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8cw68")
+"texture": ExtResource("2_yguhf")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Keycap" type="Node2D" unique_id=1748210220]
-script = ExtResource("1_mwr3w")
+[node name="Keycap" type="Node2D" unique_id=1864117511]
+script = ExtResource("1_brbpy")
 
-[node name="Backlight" type="Sprite2D" parent="." unique_id=624702593]
+[node name="Backlight" type="Sprite2D" parent="." unique_id=723261866]
 modulate = Color(1, 1, 1, 0.11372549)
 texture = SubResource("GradientTexture2D_fgoes")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601146760]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253031616]
 modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
 z_index = 1
-sprite_frames = SubResource("SpriteFrames_wd44e")
+sprite_frames = SubResource("SpriteFrames_f1uiu")
 
-[node name="Label" type="Label" parent="." unique_id=765921739]
+[node name="Label" type="Label" parent="." unique_id=862973187]
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,7 +51,6 @@ offset_right = 18.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(20, 14)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
