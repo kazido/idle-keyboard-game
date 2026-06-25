@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqs3rqntb83ry"]
 
 [ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_pawb4"]
-[ext_resource type="Texture2D" uid="uid://3aqila7d5anp" path="res://Assets/left_shift.png" id="2_pawb4"]
+[ext_resource type="Texture2D" uid="uid://b2ht52rabi5l3" path="res://Assets/left_shift.png" id="2_pawb4"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]
 offsets = PackedFloat32Array(1)
@@ -29,6 +29,7 @@ animations = [{
 [node name="Left Shift" type="Node2D" unique_id=940870187]
 script = ExtResource("1_pawb4")
 target_key = 4194325
+name_overwrite = "Shift"
 
 [node name="Backlight" type="Sprite2D" parent="." unique_id=784354831]
 modulate = Color(1, 1, 1, 0.11372549)

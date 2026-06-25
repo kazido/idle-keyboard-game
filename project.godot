@@ -20,10 +20,17 @@ Global="*uid://b76witqer6ypq"
 ValidWords="*uid://bcnxt1jfd61wl"
 WordManager="*uid://bvxpcp0gay34n"
 GameState="*uid://dq2g61baw6287"
+TextHelper="*uid://b8o4cxmhwf8nv"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://keyboard/keycaps/upgrades/": "red"
+}
 
 [gui]
 

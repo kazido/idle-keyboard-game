@@ -1,7 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://h6t4d457soli"]
 
-[ext_resource type="FontFile" uid="uid://bd8t7plxn332b" path="res://Fonts/Tiny5/Tiny5-Regular.ttf" id="1_470mv"]
+[ext_resource type="FontFile" uid="uid://bpllaohxtldw7" path="res://Fonts/Tiny5/Tiny5-Regular.ttf" id="1_8cjo3"]
 
 [resource]
-default_font = ExtResource("1_470mv")
+default_font = ExtResource("1_8cjo3")
 default_font_size = 20
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)

@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bgc1h2yyjs5dc"]
 
-[ext_resource type="Texture2D" uid="uid://dyfe314xdrhv4" path="res://Assets/mousepad.png" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://c3essqdmqkac2" path="res://Assets/mousepad.png" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://yi41qtvv27tb" path="res://Scenes/Keyboard/Keyboard.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://byjhsi4ko3wxe" path="res://Assets/desk.png" id="1_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://deyu82s68gise" path="res://Assets/desk.png" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://blen6hpoa4nv8" path="res://Scenes/UI.tscn" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://cfb772ojlgyaf" path="res://Assets/keyboard_cable.png" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://ckowv03164vrv" path="res://Assets/keyboard_cable.png" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://c4oiiepq7d1i1" path="res://Scenes/Screens/UpgradeSelection.tscn" id="6_21xkr"]
 
 [node name="Main" type="Node2D" unique_id=709920183]
 
@@ -17,17 +18,23 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_jjvhh")
 
 [node name="Mousepad" type="Sprite2D" parent="." unique_id=2084341646]
-scale = Vector2(1.75, 1.75)
+position = Vector2(-1, 81)
+scale = Vector2(2, 2)
 texture = ExtResource("1_8gbba")
 
 [node name="Cable" type="Sprite2D" parent="." unique_id=358370940]
-position = Vector2(-217, -231)
+visible = false
+position = Vector2(-217, -245)
 scale = Vector2(2, 2)
 texture = ExtResource("3_kry3j")
 
 [node name="Keyboard" parent="." unique_id=714098873 instance=ExtResource("1_ig7tw")]
-position = Vector2(0, 50)
+position = Vector2(-1, 100)
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1404588316]
 
 [node name="UI" parent="." unique_id=1002928193 instance=ExtResource("2_0xm2m")]
+
+[node name="UpgradeSelection" parent="." unique_id=819406792 instance=ExtResource("6_21xkr")]
+visible = false

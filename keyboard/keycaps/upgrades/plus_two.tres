@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c3r0400mlijpc"]
-
-[ext_resource type="Script" uid="uid://cc3pntciyi8r1" path="res://keyboard/keycaps/upgrades/base_upgrade.gd" id="1_ssg3p"]
-
-[resource]
-script = ExtResource("1_ssg3p")
-upgrade_name = "+2"
-amount = 2.0
-metadata/_custom_type_script = "uid://cc3pntciyi8r1"

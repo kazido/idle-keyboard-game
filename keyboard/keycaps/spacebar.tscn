@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdub7c8c6t1ru"]
 
 [ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_1enml"]
-[ext_resource type="Texture2D" uid="uid://bvx7ic0usupbf" path="res://Assets/spacebar.png" id="2_8vjkj"]
+[ext_resource type="Texture2D" uid="uid://b1o7t35qso1yx" path="res://Assets/spacebar.png" id="2_8vjkj"]
 
 [sub_resource type="Gradient" id="Gradient_swrkl"]
 offsets = PackedFloat32Array(1)

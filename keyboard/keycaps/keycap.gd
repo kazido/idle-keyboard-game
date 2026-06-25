@@ -9,46 +9,33 @@ class_name Keycap
 @onready var sprite = $AnimatedSprite2D
 
 @export var is_unlocked: bool = true
-@export var _upgrade: Upgrade
-var _value: int = 1
+@export var upgrade: Upgrade
+var value: int = 1
 
 
 func _ready() -> void:
 	$Label.text = name_overwrite if name_overwrite else OS.get_keycode_string(target_key)
 	if not is_unlocked: modulate.a = 0.1
 		
-		
 func set_light_color(color: Color):
 	$Backlight.modulate = color
-	
-	
-## Get the value of the keycap after upgrades are applied
-func get_value() -> int:
-	if _upgrade and _upgrade.upgrade_type == Upgrade.UpgradeType.FLAT:
-		return int(_value + _upgrade.amount)
-	return _value
-	
-## Get the multiplier value of the keycap after upgrades are applied
-func get_multiplier() -> float:
-	if _upgrade and _upgrade.upgrade_type == Upgrade.UpgradeType.MULTIPLIER:
-		return _upgrade.amount
-	return 1
-
 
 ## Set the keycaps upgrade
-func set_upgrade(upgrade: Upgrade):
-	_upgrade = upgrade
-	if upgrade.upgrade_type == Upgrade.UpgradeType.MULTIPLIER:
-			set_light_color(Color.RED)
-	elif upgrade.upgrade_type == Upgrade.UpgradeType.FLAT:
-			set_light_color(Color.AQUA)
-	
-	
+func set_upgrade(new_upgrade: Upgrade):
+	new_upgrade.on_applied(self)
+	upgrade = new_upgrade
+			
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_unlocked: return # Don't listen to any keys we don't own yet
 	if event.is_echo(): return # Ignore echoing keys
 	if event is InputEventKey and event.keycode == target_key:
 		if event.is_pressed():
 			if alphabetic: WordManager.type_letter(self)
-		
-		
+			
+					
+func _on_area_2d_mouse_entered() -> void:
+	%UpgradeCard.show_for_keycap(self)
+	
+func _on_area_2d_mouse_exited() -> void:
+	%UpgradeCard.hide()

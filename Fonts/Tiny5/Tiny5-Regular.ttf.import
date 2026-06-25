@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bd8t7plxn332b"
+uid="uid://bpllaohxtldw7"
 path="res://.godot/imported/Tiny5-Regular.ttf-ae6b4879d71a9cd03d965bde6923c207.fontdata"
 
 [deps]
@@ -13,11 +13,11 @@ dest_files=["res://.godot/imported/Tiny5-Regular.ttf-ae6b4879d71a9cd03d965bde692
 [params]
 
 Rendering=null
-antialiasing=0
-generate_mipmaps=true
+antialiasing=1
+generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
-msdf_pixel_range=12
+msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false

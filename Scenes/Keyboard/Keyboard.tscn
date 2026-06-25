@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://yi41qtvv27tb"]
 
-[ext_resource type="Texture2D" uid="uid://c8y4cuahmfdn7" path="res://Assets/keyboard.png" id="1_3tvup"]
+[ext_resource type="Texture2D" uid="uid://hg8s3ljqw0hp" path="res://Assets/keyboard.png" id="1_3tvup"]
 [ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://keyboard/keycaps/keycap.tscn" id="1_tp6fx"]
-[ext_resource type="Texture2D" uid="uid://d2a2w6stxxq1t" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
+[ext_resource type="Texture2D" uid="uid://g3hfosiq6kbg" path="res://Assets/test_keycaps.png" id="2_4j2i2"]
 [ext_resource type="Script" uid="uid://sio10fafrf5v" path="res://keyboard/keyboard.gd" id="2_l75x6"]
 [ext_resource type="PackedScene" uid="uid://bdub7c8c6t1ru" path="res://keyboard/keycaps/spacebar.tscn" id="4_rthbk"]
 [ext_resource type="PackedScene" uid="uid://dy53cghmi84vo" path="res://keyboard/keycaps/backspace.tscn" id="5_swrkl"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bqs3rqntb83ry" path="res://Scenes/Keyboard/LeftShift.tscn" id="12_3mfwe"]
 
 [node name="Keyboard" type="Sprite2D" unique_id=168125092]
-scale = Vector2(2, 2)
 texture = ExtResource("1_3tvup")
 script = ExtResource("2_l75x6")
 
@@ -251,6 +250,7 @@ alphabetic = false
 
 [node name="Backspace" parent="Weird Shaped" unique_id=1953676985 instance=ExtResource("5_swrkl")]
 position = Vector2(110.5, -37.5)
+name_overwrite = "Backspace"
 
 [node name="Backslash" parent="Weird Shaped" unique_id=263774815 instance=ExtResource("6_dtepm")]
 position = Vector2(113.5, -19.5)
@@ -297,6 +297,7 @@ alphabetic = false
 
 [node name="Capslock" parent="Weird Shaped" unique_id=1029561820 instance=ExtResource("11_gtxdj")]
 position = Vector2(-122, -1.5)
+name_overwrite = "Caps"
 alphabetic = false
 
 [node name="Left Shift" parent="Weird Shaped" unique_id=940870187 instance=ExtResource("12_3mfwe")]

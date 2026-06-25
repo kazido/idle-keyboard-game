@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br6j888yr3yj7"]
 
 [ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_bkw0l"]
-[ext_resource type="Texture2D" uid="uid://ns3c242au5bg" path="res://Assets/backslash.png" id="2_bkw0l"]
+[ext_resource type="Texture2D" uid="uid://cs5x3mqmvuc00" path="res://Assets/backslash.png" id="2_bkw0l"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]
 offsets = PackedFloat32Array(1)

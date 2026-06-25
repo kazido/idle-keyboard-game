@@ -14,14 +14,19 @@ func _ready():
 func init_ui():
 	$WordBuffer.text = ""
 	$Score.text = "Score: " + str(GameState.score)
-	$RequiredScore.text = "[wave]Need: " + str(GameState.required_score) + "[/wave]"
+	$RequiredScore.text = "Need: " + str(GameState.required_score)
 	%WordsRemainingLabel.text = "Words Remaining: " + str(GameState.words_remaining)
-	%DayCounterLabel.text = "DAY " + str(GameState.current_day)
+	%DayCounterLabel.text = "WEEK " + str(GameState.current_week)
+	%DayCounterLabel.text += "\n" + GameState.day_to_string(GameState.current_day)
+	
+	$ProgressBar.max_value = GameState.required_score
+	
 	
 ## Handles updating score, words remamining, and list of submitted words upon
 ## submitting a word
 func _on_word_submitted(_buffer):
 	$Score.text = "Score: " + str(GameState.score)
+	$ProgressBar.value = GameState.score
 	%WordsRemainingLabel.text = "Words Remaining: " + str(GameState.words_remaining)
 	
 	# Add the submitted word to the list
@@ -44,9 +49,9 @@ func _on_day_ended(won: bool):
 	else:
 		day_counter.text = "PASSED!"
 		day_counter.modulate = Color.CHARTREUSE
-		add_child(day_completed_screen.instantiate())
+		#add_child(day_completed_screen.instantiate())
 	get_tree().paused = true
-		
+	
 ## Updates the screen whenever the word being typed changes
 func _on_word_buffer_changed(buffer: Array):
 	$WordBuffer.text = WordManager.buffer_to_string(buffer)

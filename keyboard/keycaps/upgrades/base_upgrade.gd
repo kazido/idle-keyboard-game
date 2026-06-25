@@ -1,8 +1,12 @@
 extends Resource
 class_name Upgrade
 
-enum UpgradeType {FLAT, MULTIPLIER}
+var name: String
+var description: String
+var color: String
 
-@export var upgrade_name: String
-@export var upgrade_type: UpgradeType
-@export var amount: float
+func on_applied(keycap: Keycap) -> void:
+	keycap.set_light_color(Color(color))
+	
+func on_played(_keycap: Keycap, _state: Dictionary):
+	pass # Overridden

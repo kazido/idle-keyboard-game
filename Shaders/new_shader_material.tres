@@ -1,0 +1,58 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bdr0r0mk8ltv4"]
+
+[sub_resource type="Shader" id="Shader_x0h1o"]
+code = "shader_type canvas_item;
+
+// The base color of your terminal beneath the effect
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
+
+// Control variables for the inspector
+uniform float rainbow_speed : hint_range(0.0, 5.0) = 1.0;
+uniform float distortion_strength : hint_range(0.0, 1.0) = 0.2;
+uniform float overlay_strength : hint_range(0.0, 1.0) = 0.3;
+
+// A standard \"random noise\" function for GLSL
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+// Simple 2D smooth noise
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f); // Cubic smoothing
+    return mix(mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), f.x),
+               mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+void fragment() {
+    // 1. Get the base texture (your terminal text/box)
+    vec4 base_color = texture(SCREEN_TEXTURE, SCREEN_UV);
+    
+    // 2. Calculate Distorted UVs (Creates the \"wavy\" puddle look)
+    // We use time-shifted noise to warp the UV coordinates
+    float time_val = TIME * rainbow_speed;
+    float n = noise(SCREEN_UV * 3.0 + time_val);
+    vec2 distorted_uv = SCREEN_UV + (vec2(n) - 0.5) * distortion_strength;
+    
+    // 3. Generate Iridescent Rainbow Colors
+    // The trick for iridescence is different math for R, G, and B
+    vec3 rainbow;
+    rainbow.r = sin(distorted_uv.x * 12.0 + time_val) * 0.5 + 0.5;
+    rainbow.g = sin(distorted_uv.y * 10.0 - time_val * 1.3) * 0.5 + 0.5;
+    rainbow.b = sin((distorted_uv.x + distorted_uv.y) * 8.0 + time_val * 0.8) * 0.5 + 0.5;
+    
+    // 4. Combine: Apply the rainbow overlay to the base color
+    // We only apply the rainbow where the screen isn't empty (transparent)
+    float base_mask = base_color.a; // Use the terminal's alpha as a mask
+    vec3 final_rgb = base_color.rgb + (rainbow * overlay_strength * base_mask);
+    
+    // 5. Output
+    COLOR = vec4(final_rgb, base_color.a); // Keep the terminal's original transparency
+}"
+
+[resource]
+shader = SubResource("Shader_x0h1o")
+shader_parameter/rainbow_speed = 0.33200001577
+shader_parameter/distortion_strength = 0.2810000133475
+shader_parameter/overlay_strength = 0.51200002432

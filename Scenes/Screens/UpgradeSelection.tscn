@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c4oiiepq7d1i1"]
+
+[ext_resource type="Material" uid="uid://bdr0r0mk8ltv4" path="res://Shaders/new_shader_material.tres" id="1_1aoam"]
+[ext_resource type="Script" uid="uid://b7rcmcobgswf7" path="res://Scenes/Screens/UpgradeSelection.gd" id="1_emms7"]
+
+[node name="UpgradeSelection" type="CanvasLayer" unique_id=883611898]
+script = ExtResource("1_emms7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1375880864]
+self_modulate = Color(1, 1, 1, 0.5372549)
+material = ExtResource("1_1aoam")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=458859792]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4862745)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1033728721]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Upgrades" type="HBoxContainer" parent="MarginContainer" unique_id=1852196357]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
