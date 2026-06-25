@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpgexwjvjorra"]
 
 [ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_brbpy"]
-[ext_resource type="Texture2D" uid="uid://5xw8taro6auh" path="res://Assets/keycap1.png" id="2_yguhf"]
+[ext_resource type="Texture2D" uid="uid://5xw8taro6auh" path="res://assets/keycap1.png" id="2_yguhf"]
 [ext_resource type="PackedScene" uid="uid://c8ybr80tmtjyr" path="res://keyboard/keycaps/keycap_tooltip.tscn" id="3_pejyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snxjy"]

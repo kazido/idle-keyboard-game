@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dy53cghmi84vo"]
+[gd_scene format=3 uid="uid://bvgkxqel877fa"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_fqqkl"]
-[ext_resource type="Texture2D" uid="uid://duodtexujthwm" path="res://assets/backspace.png" id="2_7tu16"]
+[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_jhn70"]
+[ext_resource type="Texture2D" uid="uid://tio02dtv7rj0" path="res://assets/right_shift.png" id="2_jhn70"]
 
 [sub_resource type="Gradient" id="Gradient_bammy"]
 offsets = PackedFloat32Array(1)
@@ -9,54 +9,56 @@ colors = PackedColorArray(1, 1, 1, 0.47058824)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dtepm"]
 gradient = SubResource("Gradient_bammy")
-width = 31
+width = 45
 height = 18
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_csj70"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nt366"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7tu16")
+"texture": ExtResource("2_jhn70")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Backspace" type="Node2D" unique_id=1953676985]
-script = ExtResource("1_fqqkl")
+[node name="Right Shift" type="Node2D" unique_id=653182228]
+script = ExtResource("1_jhn70")
+name_overwrite = "Shift"
+target_key = 4194325
 
-[node name="Backlight" type="Sprite2D" parent="." unique_id=1187332543]
+[node name="Backlight" type="Sprite2D" parent="." unique_id=998315961]
 modulate = Color(1, 1, 1, 0.11372549)
 position = Vector2(0.5, 0)
 texture = SubResource("GradientTexture2D_dtepm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=780820739]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=118511820]
 modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
 z_index = 1
 position = Vector2(0.5, 0)
-sprite_frames = SubResource("SpriteFrames_csj70")
+sprite_frames = SubResource("SpriteFrames_nt366")
 
-[node name="Label" type="Label" parent="." unique_id=1434395226]
+[node name="Label" type="Label" parent="." unique_id=22425209]
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -22.0
 offset_top = -14.0
-offset_right = 20.0
+offset_right = 18.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(20, 14)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
 theme_override_font_sizes/font_size = 8
-text = "Backspace"
 horizontal_alignment = 1
 vertical_alignment = 1

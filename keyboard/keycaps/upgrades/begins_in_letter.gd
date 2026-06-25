@@ -8,5 +8,5 @@ func _init() -> void:
 
 
 func on_played(keycap: Keycap, state: Dictionary):
-	if state["word"].begins_with(OS.get_keycode_string(keycap.target_key)):
+	if state["word"].begins_with(keycap.get_key()):
 		state["points"] *= 1.5

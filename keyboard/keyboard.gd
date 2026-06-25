@@ -14,10 +14,17 @@ func apply_upgrade(keycap: Keycap, upgrade: Upgrade):
 	var key_name = OS.get_keycode_string(keycap.target_key)
 	GameState.keycap_upgrades[key_name] = upgrade
 	keycap.set_upgrade(upgrade)
+	
+
+## Increase the value of all keycaps by amount
+## used only at the end of each week
+func increase_all_keycap_values(amount: int) -> void:
+	for keycap: Keycap in $Keycaps.get_children():
+		keycap.value =+ amount
 
 
 func find_keycap_by_letter(letter: String) -> Keycap:
 	for keycap: Keycap in $Keycaps.get_children():
-		if  OS.get_keycode_string(keycap.target_key) == letter:
+		if  keycap.get_key() == letter:
 			return keycap
 	return null

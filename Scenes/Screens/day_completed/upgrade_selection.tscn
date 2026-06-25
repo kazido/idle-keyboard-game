@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c4oiiepq7d1i1"]
+
+[ext_resource type="Material" uid="uid://bdr0r0mk8ltv4" path="res://shaders/new_shader_material.tres" id="1_1aoam"]
+
+[sub_resource type="GDScript" id="GDScript_ed26d"]
+script/source = "extends CanvasLayer
+class_name UpgradeSelectionScreen
+
+signal upgrade_selected # Emitted when an upgrade has been chosen from this screen
+
+var card_scene = preload(\"res://scenes/screens/day_completed/upgrade_selection_card.tscn\")
+
+var upgrades := [
+	TimesTwo, 
+	BeginsInLetter, 
+	EndsInLetter,
+	ThreeCount,
+	DoubleDown,
+	SoloStar,
+	Bookends,
+	FinalStand,
+	]
+
+func _ready():
+	for i in range(3):
+		var card = card_scene.instantiate()
+		%Upgrades.add_child(card)
+		card.setup(select_random_upgrade())
+		
+		card.picked.connect(_on_card_picked)
+	
+func select_random_upgrade() -> Upgrade:
+	randomize()
+	return upgrades[randi() % upgrades.size()].new()
+	
+func _on_card_picked() -> void:
+	upgrade_selected.emit()
+	queue_free()
+"
+
+[node name="UpgradeSelection" type="CanvasLayer" unique_id=883611898]
+script = SubResource("GDScript_ed26d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1375880864]
+self_modulate = Color(1, 1, 1, 0.5372549)
+material = ExtResource("1_1aoam")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1033728721]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Upgrades" type="HBoxContainer" parent="MarginContainer" unique_id=1852196357]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1

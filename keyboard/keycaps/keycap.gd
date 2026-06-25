@@ -14,11 +14,15 @@ var value: int = 1
 
 
 func _ready() -> void:
-	$Label.text = name_overwrite if name_overwrite else OS.get_keycode_string(target_key)
+	$Label.text = name_overwrite if name_overwrite else get_key()
 	if not is_unlocked: modulate.a = 0.1
 		
 func set_light_color(color: Color):
 	$Backlight.modulate = color
+	
+## Return the letter associated with the key as a string
+func get_key() -> String:
+	return OS.get_keycode_string(target_key)
 
 ## Set the keycaps upgrade
 func set_upgrade(new_upgrade: Upgrade):
@@ -31,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return # Ignore echoing keys
 	if event is InputEventKey and event.keycode == target_key:
 		if event.is_pressed():
-			if alphabetic: WordManager.type_letter(self)
+			if alphabetic: BufferManager.type_letter(self)
 			
 					
 func _on_area_2d_mouse_entered() -> void:

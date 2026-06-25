@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dfbxniopd7tnu"]
+
+[ext_resource type="Script" uid="uid://tv6lxjrlo3f0" path="res://scripts/game_over.gd" id="1_k52d1"]
+[ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="1_m5628"]
+[ext_resource type="Shader" uid="uid://bk7dkxxnrxfgs" path="res://shaders/day_failed.gdshader" id="2_7xe70"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ify0j"]
+shader = ExtResource("2_7xe70")
+shader_parameter/base_color = Color(0.02, 0.03, 0.05, 1)
+shader_parameter/glow_color = Color(0.85, 0.15, 0.15, 1)
+shader_parameter/mouse_position = Vector2(0.5, 0.5)
+shader_parameter/glow_radius = 0.35
+shader_parameter/grid_count = 50.0
+
+[sub_resource type="GDScript" id="GDScript_7xe70"]
+resource_name = "MouseShaderScript"
+script/source = "extends ColorRect
+
+func _process(_delta: float) -> void:
+	# Get mouse position relative to the ColorRect size (0.0 to 1.0)
+	var mat = material as ShaderMaterial
+	if mat:
+		var mouse_uv = get_local_mouse_position() / size
+		mat.set_shader_parameter(\"mouse_position\", mouse_uv)
+"
+
+[node name="GameOver" type="CanvasLayer" unique_id=374270431]
+process_mode = 3
+layer = 10
+script = ExtResource("1_k52d1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1795627452]
+material = SubResource("ShaderMaterial_ify0j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_7xe70")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1337387485]
+offset_top = 174.0
+offset_right = 1152.0
+offset_bottom = 287.0
+theme = ExtResource("1_m5628")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=2090005939]
+custom_minimum_size = Vector2(20, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 26.0
+offset_right = 100.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
