@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://blen6hpoa4nv8"]
+
+[ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="1_w371h"]
+[ext_resource type="Script" uid="uid://hm4x3skct0sw" path="res://scripts/word_display.gd" id="2_xjfbv"]
+
+[sub_resource type="GDScript" id="GDScript_nt7q6"]
+resource_name = "UI"
+script/source = "extends CanvasLayer
+
+var game_over_screen = preload(\"res://scenes/screens/game_over.tscn\")
+var day_completed_screen = preload(\"res://scenes/screens/day_completed/day_completed.tscn\")
+var upgrade_selection_screen = preload(\"res://scenes/screens/day_completed/upgrade_selection.tscn\")
+
+# Keep track of active overlay instances so we can delete them on reset
+var active_screen_overlay: Node = null
+
+
+func _ready():
+	# Prepare UI when added to scene
+	init_ui()
+	
+	# Listen for updates from GameState
+	GameState.day_completed.connect(_on_day_completed)
+	GameState.day_failed.connect(_on_day_failed)
+	GameState.day_started.connect(init_ui)
+	
+## Setup the UI for the current day
+func init_ui():
+	# Absolute guard: if child nodes aren't ready yet, wait until they are!
+	if not is_inside_tree():
+		await ready
+		
+	# Clean up any lingering victory/defeat popup overlay windows
+	if is_instance_valid(active_screen_overlay):
+		active_screen_overlay.queue_free()
+		active_screen_overlay = null
+	
+	for child in %WordDisplay.get_children():
+		child.queue_free()
+	
+	%Score.text = \"Score: \" + str(GameState.score)
+	%Score.modulate = Color.WHITE
+	%RequiredScore.text = \"Need: \" + str(GameState.required_score)
+	%WordsRemainingLabel.text = \"Words Remaining: \" + str(GameState.words_remaining)
+	
+	%DayCounterLabel.text = \"WEEK \" + str(GameState.current_week)
+	%DayCounterLabel.text += \"\\n\" + GameState.day_to_string(GameState.current_day)
+	%DayCounterLabel.modulate = Color.WHITE
+	
+	%Bar.max_value = GameState.required_score
+	%Bar.value = GameState.score
+	
+	for child in %SubmittedWords.get_children():
+		child.queue_free()
+
+	
+## Pause scene and show day completed screen.
+func _on_day_completed():
+	get_tree().paused = true
+	%DayCounterLabel.text = \"PASSED!\"
+	%DayCounterLabel.modulate = Color.CHARTREUSE
+	
+	var upgrade_menu = upgrade_selection_screen.instantiate()
+	add_child(upgrade_menu)
+	
+	upgrade_menu.upgrade_selected.connect(_show_day_completed_screen)
+	
+func _show_day_completed_screen() -> void:
+	active_screen_overlay = day_completed_screen.instantiate()
+	add_child(active_screen_overlay)
+	await get_tree().create_timer(0.25).timeout
+	if active_screen_overlay.has_method(\"display_completed_day\"):
+		active_screen_overlay.display_completed_day()
+	
+	
+# Pause scene and show day failed screen.
+func _on_day_failed():
+	get_tree().paused = true
+	%DayCounterLabel.text = \"FAILED\"
+	%DayCounterLabel.modulate = Color.RED
+	active_screen_overlay = game_over_screen.instantiate()
+	add_child(active_screen_overlay)
+		
+func _on_complete_day_pressed() -> void:
+	GameState.day_completed.emit()
+
+func _on_next_day_pressed() -> void:
+	GameState.load_next_day()
+
+func _on_lose_day_pressed() -> void:
+	GameState.day_failed.emit()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxvpl"]
+bg_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewlx"]
+bg_color = Color(0.23137255, 0.69803923, 0.46666667, 1)
+
+[node name="UI" type="CanvasLayer" unique_id=625124063]
+script = SubResource("GDScript_nt7q6")
+
+[node name="Word List" type="MarginContainer" parent="." unique_id=841636837]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -103.0
+offset_bottom = 174.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Word List" unique_id=1668663338]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Word List/VBoxContainer" unique_id=2035227676]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="WordsRemainingLabel" type="Label" parent="Word List/VBoxContainer/MarginContainer" unique_id=1547745053]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_w371h")
+theme_override_colors/font_color = Color(0.93500715, 0.90466106, 0.27363628, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7294118)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "words remaining"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubmittedWords" type="VBoxContainer" parent="Word List/VBoxContainer" unique_id=633324545]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Day Counter" type="MarginContainer" parent="." unique_id=1859911867]
+custom_minimum_size = Vector2(150, 80)
+offset_right = 150.0
+offset_bottom = 89.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Day Counter" unique_id=1415175242]
+layout_mode = 2
+color = Color(0, 0, 0, 0.4509804)
+
+[node name="DayCounterLabel" type="RichTextLabel" parent="Day Counter" unique_id=221404889]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_w371h")
+bbcode_enabled = true
+text = "[wave]WEEK 1
+Monday[/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WordDisplay" type="HBoxContainer" parent="." unique_id=769853451]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -188.0
+offset_right = 132.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("2_xjfbv")
+
+[node name="ProgressBar" type="MarginContainer" parent="." unique_id=746122428]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressBar" unique_id=1492216104]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgressBar/VBoxContainer" unique_id=947194644]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Score" type="RichTextLabel" parent="ProgressBar/VBoxContainer/MarginContainer" unique_id=642050859]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.15294118, 0.15294118, 0.15294118, 0.25490198)
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 10
+bbcode_enabled = true
+text = "Score: "
+fit_content = true
+scroll_active = false
+
+[node name="RequiredScore" type="RichTextLabel" parent="ProgressBar/VBoxContainer/MarginContainer" unique_id=2011543553]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.15294118, 0.15294118, 0.15294118, 0.25490198)
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 10
+bbcode_enabled = true
+text = "Needs:"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
+
+[node name="BarContainer" type="MarginContainer" parent="ProgressBar/VBoxContainer" unique_id=1874586637]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Bar" type="ProgressBar" parent="ProgressBar/VBoxContainer/BarContainer" unique_id=2041512487]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_nxvpl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dewlx")
+
+[node name="AdminButtons" type="HBoxContainer" parent="." unique_id=1355070764]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextDay" type="Button" parent="AdminButtons" unique_id=1127478698]
+layout_mode = 2
+focus_mode = 0
+text = "Next Day"
+
+[node name="CompleteDay" type="Button" parent="AdminButtons" unique_id=261449309]
+layout_mode = 2
+focus_mode = 0
+text = "Complete Day"
+
+[node name="LoseDay" type="Button" parent="AdminButtons" unique_id=736217910]
+layout_mode = 2
+focus_mode = 0
+text = "Fail Day"
+
+[connection signal="pressed" from="AdminButtons/NextDay" to="." method="_on_next_day_pressed"]
+[connection signal="pressed" from="AdminButtons/CompleteDay" to="." method="_on_complete_day_pressed"]
+[connection signal="pressed" from="AdminButtons/LoseDay" to="." method="_on_lose_day_pressed"]

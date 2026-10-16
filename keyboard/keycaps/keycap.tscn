@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpgexwjvjorra"]
 
-[ext_resource type="Script" uid="uid://0ajum1oegmfb" path="res://keyboard/keycaps/keycap.gd" id="1_brbpy"]
+[ext_resource type="Script" uid="uid://b8eyttvfsmty1" path="res://keyboard/keycaps/keycap.gd" id="1_brbpy"]
 [ext_resource type="Texture2D" uid="uid://5xw8taro6auh" path="res://assets/keycap1.png" id="2_yguhf"]
 [ext_resource type="PackedScene" uid="uid://c8ybr80tmtjyr" path="res://keyboard/keycaps/keycap_tooltip.tscn" id="3_pejyj"]
 
@@ -67,7 +67,7 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCard" parent="." unique_id=1980034723 instance=ExtResource("3_pejyj")]
+[node name="Tooltip" parent="." unique_id=1980034723 instance=ExtResource("3_pejyj")]
 unique_name_in_owner = true
 visible = false
 z_index = 10

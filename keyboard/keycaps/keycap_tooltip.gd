@@ -17,6 +17,6 @@ func _update_tooltip(keycap: Keycap):
 		
 		
 ## Show the tooltip for the keycap based on the mouse position	
-func show_for_keycap(keycap: Keycap):
+func show_for_keycap(keycap):
 	_update_tooltip(keycap)
 	show()

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://yyryk4ueibv2"]
+
+[ext_resource type="Script" uid="uid://hm4x3skct0sw" path="res://scripts/word_display.gd" id="1_wpsc7"]
+
+[node name="WordBuffer" type="HBoxContainer" unique_id=2097584156]
+script = ExtResource("1_wpsc7")

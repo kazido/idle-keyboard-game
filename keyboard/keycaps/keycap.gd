@@ -1,10 +1,11 @@
 extends Node2D
-
 class_name Keycap
 
 @export var target_key: Key
 @export var name_overwrite: String = ""
 @export var alphabetic: bool = true
+var backlight_color: Color = Color.TRANSPARENT
+
 @onready var label = $Label
 @onready var sprite = $AnimatedSprite2D
 
@@ -19,6 +20,17 @@ func _ready() -> void:
 		
 func set_light_color(color: Color):
 	$Backlight.modulate = color
+	self.color = color
+	
+func flash(color: Color = Color.WHITE):
+	var tween = create_tween()
+	tween.tween_property($Backlight, "modulate", color, 0.2)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_EXPO)
+	await tween.finished
+	
+	var tween_out = create_tween()
+	tween_out.tween_property($Backlight, "modulate", backlight_color, 1)
 	
 ## Return the letter associated with the key as a string
 func get_key() -> String:
@@ -35,11 +47,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return # Ignore echoing keys
 	if event is InputEventKey and event.keycode == target_key:
 		if event.is_pressed():
-			if alphabetic: BufferManager.type_letter(self)
+			if alphabetic: WordInput.type_letter(self)
 			
 					
 func _on_area_2d_mouse_entered() -> void:
-	%UpgradeCard.show_for_keycap(self)
+	%Tooltip.show_for_keycap(self)
 	
 func _on_area_2d_mouse_exited() -> void:
-	%UpgradeCard.hide()
+	%Tooltip.hide()

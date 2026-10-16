@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8ybr80tmtjyr"]
 
-[ext_resource type="Script" uid="uid://dv22mxc2yeipo" path="res://keyboard/keycaps/keycap_tooltip.gd" id="1_rq583"]
+[ext_resource type="Script" uid="uid://bhnnafb237axl" path="res://keyboard/keycaps/keycap_tooltip.gd" id="1_rq583"]
 
 [node name="UpgradeCard" type="Control" unique_id=23335724]
 layout_mode = 3

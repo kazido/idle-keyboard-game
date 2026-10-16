@@ -10,15 +10,15 @@ config_version=5
 
 [application]
 
-config/name="idle-game"
+config/name="Keyboard Warrior"
 run/main_scene="uid://bgc1h2yyjs5dc"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
 
-Global="*uid://b76witqer6ypq"
+Keybinds="*uid://b76witqer6ypq"
 ValidWords="*uid://bcnxt1jfd61wl"
-BufferManager="*uid://bvxpcp0gay34n"
+WordInput="*uid://bvxpcp0gay34n"
 GameState="*uid://dq2g61baw6287"
 TextHelper="*uid://b8o4cxmhwf8nv"
 
