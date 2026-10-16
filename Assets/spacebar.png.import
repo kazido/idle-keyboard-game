@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1o7t35qso1yx"
-path="res://.godot/imported/spacebar.png-20a530a6ee1be472c1491223c056b8d8.ctex"
+path="res://.godot/imported/spacebar.png-bc4d930dc8fa49777de3a1413a9e48b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spacebar.png"
-dest_files=["res://.godot/imported/spacebar.png-20a530a6ee1be472c1491223c056b8d8.ctex"]
+source_file="res://assets/spacebar.png"
+dest_files=["res://.godot/imported/spacebar.png-bc4d930dc8fa49777de3a1413a9e48b6.ctex"]
 
 [params]
 

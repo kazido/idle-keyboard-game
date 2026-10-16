@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3essqdmqkac2"
-path="res://.godot/imported/mousepad.png-f4ee0416239d1be63e6041d6b05316bc.ctex"
+path="res://.godot/imported/mousepad.png-4aa5dffb6462c6288ac4f43df842ae31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mousepad.png"
-dest_files=["res://.godot/imported/mousepad.png-f4ee0416239d1be63e6041d6b05316bc.ctex"]
+source_file="res://assets/mousepad.png"
+dest_files=["res://.godot/imported/mousepad.png-4aa5dffb6462c6288ac4f43df842ae31.ctex"]
 
 [params]
 

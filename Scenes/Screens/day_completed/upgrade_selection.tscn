@@ -1,45 +1,10 @@
 [gd_scene format=3 uid="uid://c4oiiepq7d1i1"]
 
 [ext_resource type="Material" uid="uid://bdr0r0mk8ltv4" path="res://shaders/new_shader_material.tres" id="1_1aoam"]
-
-[sub_resource type="GDScript" id="GDScript_ed26d"]
-script/source = "extends CanvasLayer
-class_name UpgradeSelectionScreen
-
-signal upgrade_selected # Emitted when an upgrade has been chosen from this screen
-
-var card_scene = preload(\"res://scenes/screens/day_completed/upgrade_selection_card.tscn\")
-
-var upgrades := [
-	TimesTwo, 
-	BeginsInLetter, 
-	EndsInLetter,
-	ThreeCount,
-	DoubleDown,
-	SoloStar,
-	Bookends,
-	FinalStand,
-	]
-
-func _ready():
-	for i in range(3):
-		var card = card_scene.instantiate()
-		%Upgrades.add_child(card)
-		card.setup(select_random_upgrade())
-		
-		card.picked.connect(_on_card_picked)
-	
-func select_random_upgrade() -> Upgrade:
-	randomize()
-	return upgrades[randi() % upgrades.size()].new()
-	
-func _on_card_picked() -> void:
-	upgrade_selected.emit()
-	queue_free()
-"
+[ext_resource type="Script" uid="uid://chbnkjhuaa7bl" path="res://scenes/screens/day_completed/upgrade_selection.gd" id="1_ro1n5"]
 
 [node name="UpgradeSelection" type="CanvasLayer" unique_id=883611898]
-script = SubResource("GDScript_ed26d")
+script = ExtResource("1_ro1n5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1375880864]
 self_modulate = Color(1, 1, 1, 0.5372549)

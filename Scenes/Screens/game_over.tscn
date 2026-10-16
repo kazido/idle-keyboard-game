@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://dfbxniopd7tnu"]
 
-[ext_resource type="Script" uid="uid://tv6lxjrlo3f0" path="res://scripts/game_over.gd" id="1_k52d1"]
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="1_m5628"]
-[ext_resource type="Shader" uid="uid://bk7dkxxnrxfgs" path="res://shaders/day_failed.gdshader" id="2_7xe70"]
+[ext_resource type="Script" uid="uid://bmq4oro0vm3fv" path="res://scenes/screens/game_over.gd" id="1_sj7di"]
+[ext_resource type="Shader" uid="uid://dvck68mf32cri" path="res://shaders/BlinkingSquares.gdshader" id="1_t23k5"]
+[ext_resource type="Texture2D" uid="uid://0ik7uibknwei" path="res://shaders/BubbleColorGrad.tres" id="2_o6l22"]
+[ext_resource type="Texture2D" uid="uid://dvyjdhcrwflxw" path="res://shaders/SquareGlowingBubble.png" id="3_sj7di"]
+[ext_resource type="Texture2D" uid="uid://brmfbgel466d8" path="res://shaders/BubbleNoise.tres" id="4_tcnjx"]
+[ext_resource type="Texture2D" uid="uid://bcs2qo56sgfug" path="res://shaders/BackgroundGradTeal.tres" id="5_aolym"]
+[ext_resource type="FontFile" uid="uid://dkvf6halfv42c" path="res://fonts/Kenney Mini.ttf" id="7_o6l22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ify0j"]
-shader = ExtResource("2_7xe70")
-shader_parameter/base_color = Color(0.02, 0.03, 0.05, 1)
-shader_parameter/glow_color = Color(0.85, 0.15, 0.15, 1)
-shader_parameter/mouse_position = Vector2(0.5, 0.5)
-shader_parameter/glow_radius = 0.35
-shader_parameter/grid_count = 50.0
+shader = ExtResource("1_t23k5")
+shader_parameter/bubbleReslution = Vector2(24, 13.5)
+shader_parameter/bubbleDuration = 0.2
+shader_parameter/cycleSpeed = 0.02
+shader_parameter/scrollSpeed = 0.01
+shader_parameter/noiseTexture = ExtResource("4_tcnjx")
+shader_parameter/bubbleTexture = ExtResource("3_sj7di")
+shader_parameter/bubbleColor = ExtResource("2_o6l22")
+shader_parameter/vineteGradient = ExtResource("5_aolym")
 
 [sub_resource type="GDScript" id="GDScript_7xe70"]
 resource_name = "MouseShaderScript"
@@ -27,7 +35,7 @@ func _process(_delta: float) -> void:
 [node name="GameOver" type="CanvasLayer" unique_id=374270431]
 process_mode = 3
 layer = 10
-script = ExtResource("1_k52d1")
+script = ExtResource("1_sj7di")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1795627452]
 material = SubResource("ShaderMaterial_ify0j")
@@ -39,32 +47,40 @@ grow_vertical = 2
 script = SubResource("GDScript_7xe70")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1337387485]
-offset_top = 174.0
+[node name="Label" type="RichTextLabel" parent="." unique_id=1988851792]
+offset_top = 120.0
 offset_right = 1152.0
-offset_bottom = 287.0
+offset_bottom = 420.0
 theme = ExtResource("1_m5628")
-theme_override_font_sizes/font_size = 100
-text = "GAME OVER"
+theme_override_colors/font_shadow_color = Color(1, 0.69411767, 0.59607846, 0.5058824)
+theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/normal_font_size = 125
+bbcode_enabled = true
+text = "[shake]GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="." unique_id=2090005939]
 custom_minimum_size = Vector2(20, 0)
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 26.0
-offset_right = 100.0
-offset_bottom = 126.0
+offset_left = -101.0
+offset_top = 28.0
+offset_right = 99.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_hover_color = Color(0.93462265, 0.9411457, 0.7415445, 1)
+theme_override_fonts/font = ExtResource("7_o6l22")
+theme_override_font_sizes/font_size = 70
 text = "Play Again"
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

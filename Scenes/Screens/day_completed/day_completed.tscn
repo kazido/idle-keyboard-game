@@ -1,82 +1,25 @@
 [gd_scene format=3 uid="uid://4b7jmj88srro"]
 
-[ext_resource type="Shader" uid="uid://deb6hdt6ik8o6" path="res://shaders/day_completed.gdshader" id="2_tend8"]
+[ext_resource type="Script" uid="uid://bbi172pe0pbq" path="res://scenes/screens/day_completed/day_completed.gd" id="1_467ls"]
+[ext_resource type="Shader" uid="uid://dvck68mf32cri" path="res://shaders/BlinkingSquares.gdshader" id="1_qqjua"]
+[ext_resource type="Texture2D" uid="uid://0ik7uibknwei" path="res://shaders/BubbleColorGrad.tres" id="2_467ls"]
 [ext_resource type="FontFile" uid="uid://dkvf6halfv42c" path="res://fonts/Kenney Mini.ttf" id="3_2fiwl"]
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="3_f3clp"]
+[ext_resource type="Texture2D" uid="uid://cvplguc0r4gtu" path="res://shaders/CircleGlowingBubble.tres" id="3_qn1dy"]
 [ext_resource type="FontFile" uid="uid://bn226bkathyf1" path="res://fonts/Kenney Blocks.ttf" id="3_tend8"]
-
-[sub_resource type="GDScript" id="GDScript_tend8"]
-script/source = "extends CanvasLayer
-
-const SCORE_ROW_SCENE = preload(\"res://scenes/screens/day_completed/score_row.tscn\")
-
-@onready var vbox = %VBoxContainer
-@onready var score = %Score
-@onready var score_number = %ScoreNumber
-@onready var hr = %HorizontalRule
-@onready var shader_bg = %ShaderBackground
-@onready var title = %Title
-
-var color: Color
-var color2: Color
-
-func _ready() -> void:
-	# Set the shader background to be a random color
-	var val := randf()
-	color = Color.from_hsv(val, 0.8, 1.0)
-	color2 = Color.from_hsv(val, 0.3, 1.0)
-	shader_bg.material.set_shader_parameter(\"glow_color\", color)
-	title.add_theme_color_override(\"default_color\", color)
-	hr.modulate = color2
-	
-	
-func display_completed_day() -> void:
-	var score_count := 0
-	
-	for key in GameState.words_used_today:
-		# Update the total score
-		score_count += GameState.words_used_today[key]
-		score_number.text = str(score_count)
-		
-		# Add a new row for each word and its points
-		var new_row = SCORE_ROW_SCENE.instantiate()
-		new_row.get_node(\"Word\").text = key
-		new_row.get_node(\"Points\").text = str(GameState.words_used_today[key])
-		
-		new_row.get_node(\"Word\").add_theme_color_override(\"default_color\", color2)
-		new_row.get_node(\"Points\").add_theme_color_override(\"default_color\", color2)
-		vbox.add_child(new_row)
-		
-		# Prepare the properties for tweening
-		new_row.scale = Vector2(4.0, 4.0)
-		new_row.modulate.a = 0.0
-		new_row.rotation_degrees = randf_range(-10.0, 10.0)
-		
-		# Create the Tween to slam it down
-		var tween = create_tween().set_parallel(true)
-		
-		tween.tween_property(new_row, \"modulate:a\", 1.0, 0.05)
-		tween.tween_property(new_row, \"rotation_degrees\", 0.0, 0.15)
-		tween.tween_property(new_row, \"scale\", Vector2(1.0, 1.0), 0.15)\\
-			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		
-		# Play a satisfying mechanical switch sound right as it hits
-		# play_sound(\"mechanical_click\") 
-		
-		# Wait a fraction of a second before slamming the next word
-		await get_tree().create_timer(0.5).timeout
-
-
-func _on_button_pressed() -> void:
-	get_tree().paused = false
-	GameState.load_next_day()
-"
+[ext_resource type="Texture2D" uid="uid://brmfbgel466d8" path="res://shaders/BubbleNoise.tres" id="4_ep2q3"]
+[ext_resource type="Texture2D" uid="uid://bcs2qo56sgfug" path="res://shaders/BackgroundGradTeal.tres" id="5_t34hy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cyq5s"]
-shader = ExtResource("2_tend8")
-shader_parameter/base_color = Color(0, 0, 0, 1)
-shader_parameter/glow_color = Color(0.465833, 0.87229586, 0.83010685, 1)
-shader_parameter/speed = 3.2210001292475
+shader = ExtResource("1_qqjua")
+shader_parameter/bubbleReslution = Vector2(24, 13.5)
+shader_parameter/bubbleDuration = 0.2
+shader_parameter/cycleSpeed = 0.05
+shader_parameter/scrollSpeed = 0.05
+shader_parameter/noiseTexture = ExtResource("4_ep2q3")
+shader_parameter/bubbleTexture = ExtResource("3_qn1dy")
+shader_parameter/bubbleColor = ExtResource("2_467ls")
+shader_parameter/vineteGradient = ExtResource("5_t34hy")
 
 [sub_resource type="Gradient" id="Gradient_0uh10"]
 offsets = PackedFloat32Array(0, 0.3253796, 1)
@@ -93,7 +36,7 @@ fill_to = Vector2(0.9, 0)
 [node name="DayCompleted" type="CanvasLayer" unique_id=1129403177]
 process_mode = 3
 layer = 10
-script = SubResource("GDScript_tend8")
+script = ExtResource("1_467ls")
 
 [node name="ShaderBackground" type="ColorRect" parent="." unique_id=71329078]
 unique_name_in_owner = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckowv03164vrv"
-path="res://.godot/imported/keyboard_cable.png-dc0500b89aaf35ca9687338caf9287c9.ctex"
+path="res://.godot/imported/keyboard_cable.png-bce8e19d954dd62ee106b66be027e866.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/keyboard_cable.png"
-dest_files=["res://.godot/imported/keyboard_cable.png-dc0500b89aaf35ca9687338caf9287c9.ctex"]
+source_file="res://assets/keyboard_cable.png"
+dest_files=["res://.godot/imported/keyboard_cable.png-bce8e19d954dd62ee106b66be027e866.ctex"]
 
 [params]
 

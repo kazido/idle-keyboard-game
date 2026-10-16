@@ -2,7 +2,7 @@ extends Node
 
 signal day_completed
 signal day_failed
-signal day_started # Tells UI to reload elements
+signal day_started
 
 enum Day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
 
@@ -21,11 +21,11 @@ var keycap_upgrades: Dictionary = {} # { "A": upgrade, "D": upgrade}
 
 
 func _ready() -> void:
-	BufferManager.word_submitted.connect(_on_word_submitted)
+	WordInput.word_submitted.connect(_on_word_submitted)
 	
 		
-func _on_word_submitted(buffer: Array[Keycap]):
-	var word = BufferManager.buffer_to_string(buffer)
+func _on_word_submitted(buffer: Array):
+	var word = WordInput.get_word_string()
 		
 	# Update the points
 	var state: Dictionary = {
@@ -77,7 +77,7 @@ func reset_day():
 ## Start the next day
 func load_next_day():
 	# Archive the words used today
-	words_used_this_week.assign(words_used_today)
+	words_used_this_week.merge(words_used_today)
 	words_used_today.clear()
 	
 	words_remaining = 5
@@ -88,6 +88,7 @@ func load_next_day():
 	if current_day == Day.SUNDAY:
 		current_day = Day.MONDAY
 		current_week += 1
+		words_used_this_week.clear()
 	else:
 		current_day = (current_day + 1) as Day
 		

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tio02dtv7rj0"
-path="res://.godot/imported/right_shift.png-f57590052c2aaaf3a254421c96955f03.ctex"
+path="res://.godot/imported/right_shift.png-69032da3ac2da1d30a49eee588f8fc7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/right_shift.png"
-dest_files=["res://.godot/imported/right_shift.png-f57590052c2aaaf3a254421c96955f03.ctex"]
+source_file="res://assets/right_shift.png"
+dest_files=["res://.godot/imported/right_shift.png-69032da3ac2da1d30a49eee588f8fc7a.ctex"]
 
 [params]
 
