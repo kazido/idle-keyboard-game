@@ -1,8 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://h6t4d457soli"]
 
-[ext_resource type="FontFile" uid="uid://bpllaohxtldw7" path="res://fonts/Tiny5-Regular.ttf" id="1_8cjo3"]
+[ext_resource type="FontFile" uid="uid://da34l5gkd2edf" path="res://fonts/Kenney Pixel.ttf" id="1_rjgu6"]
 
 [resource]
-default_font = ExtResource("1_8cjo3")
+default_font = ExtResource("1_rjgu6")
 default_font_size = 20
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)

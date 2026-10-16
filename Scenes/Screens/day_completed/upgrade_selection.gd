@@ -3,31 +3,23 @@ class_name UpgradeSelectionScreen
 
 signal upgrade_selected # Emitted when an upgrade has been chosen from this screen
 
-var card_scene = preload("res://scenes/screens/day_completed/upgrade_selection_card.tscn")
+const CARD_SCENE := preload("res://scenes/screens/day_completed/upgrade_selection_card.tscn")
 
-var upgrades := [
-	TimesTwo, 
-	BeginsInLetter, 
-	EndsInLetter,
-	ThreeCount,
-	DoubleDown,
-	SoloStar,
-	Bookends,
-	FinalStand,
-	]
-
-func _ready():
-	for i in range(3):
-		var card = card_scene.instantiate()
+func _ready() -> void:
+	var pool: Array[Upgrade] = UpgradeRegistry.ALL.duplicate()
+	pool.shuffle()
+	
+	var free_keys := KeyboardModel.free_keys()
+	free_keys.shuffle()
+	
+	for i in mini(3, mini(pool.size(), free_keys.size())):
+		var card: UpgradeSelectionCard = CARD_SCENE.instantiate()
 		%Upgrades.add_child(card)
-		card.setup(select_random_upgrade())
-		
+		card.setup(pool[i], free_keys[i])
 		card.picked.connect(_on_card_picked)
+
 	
-func select_random_upgrade() -> Upgrade:
-	randomize()
-	return upgrades[randi() % upgrades.size()].new()
-	
-func _on_card_picked() -> void:
+func _on_card_picked(upgrade: Upgrade, key: KeyData) -> void:
+	key.upgrade = upgrade
 	upgrade_selected.emit()
 	queue_free()

@@ -8,7 +8,7 @@ func _ready() -> void:
 	WordInput.word_submitted.connect(_submit_buffer)
 
 ## Called whenever the word input changes
-func _update_buffer(keys: Array[Keycap], state: WordInput.WordState) -> void:
+func _update_buffer(keys: Array[KeyData], state: WordInput.WordState) -> void:
 	var color: Color
 	
 	match state:
@@ -22,10 +22,10 @@ func _update_buffer(keys: Array[Keycap], state: WordInput.WordState) -> void:
 	var letters = get_children()
 	
 	while letters.size() < keys.size():
-		var keycap: Keycap = keys[letters.size()]
+		var key: KeyData = keys[letters.size()]
 		
 		var label := LetterDisplay.new()
-		label.set_letter(keycap, color)
+		label.set_letter(key, color)
 		
 		%WordDisplay.add_child(label)
 		#label.bounce() # TODO: Fix the label slamming into place
@@ -41,7 +41,7 @@ func _update_buffer(keys: Array[Keycap], state: WordInput.WordState) -> void:
 		letter.add_theme_color_override("font_color", color)
 		
 ## Called whenever the word is submitted
-func _submit_buffer(_keys: Array[Keycap]) -> void:
+func _submit_buffer(_keys: Array[KeyData]) -> void:
 	await animate_submission()
 	
 	WordInput.clear_buffer()

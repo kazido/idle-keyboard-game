@@ -1,8 +1,8 @@
 extends Label
 class_name LetterDisplay
 
-func set_letter(keycap: Keycap, color: Color) -> void:
-	text = OS.get_keycode_string(keycap.target_key)
+func set_letter(key: KeyData, color: Color) -> void:
+	text = key.get_key()
 	add_theme_font_size_override("font_size", 40)
 	add_theme_color_override("font_color", color)
 	

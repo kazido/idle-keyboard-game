@@ -2,28 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bbi172pe0pbq" path="res://scenes/screens/day_completed/day_completed.gd" id="1_467ls"]
 [ext_resource type="Shader" uid="uid://dvck68mf32cri" path="res://shaders/BlinkingSquares.gdshader" id="1_qqjua"]
-[ext_resource type="Texture2D" uid="uid://0ik7uibknwei" path="res://shaders/BubbleColorGrad.tres" id="2_467ls"]
 [ext_resource type="FontFile" uid="uid://dkvf6halfv42c" path="res://fonts/Kenney Mini.ttf" id="3_2fiwl"]
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="3_f3clp"]
 [ext_resource type="Texture2D" uid="uid://cvplguc0r4gtu" path="res://shaders/CircleGlowingBubble.tres" id="3_qn1dy"]
 [ext_resource type="FontFile" uid="uid://bn226bkathyf1" path="res://fonts/Kenney Blocks.ttf" id="3_tend8"]
 [ext_resource type="Texture2D" uid="uid://brmfbgel466d8" path="res://shaders/BubbleNoise.tres" id="4_ep2q3"]
-[ext_resource type="Texture2D" uid="uid://bcs2qo56sgfug" path="res://shaders/BackgroundGradTeal.tres" id="5_t34hy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cyq5s"]
 shader = ExtResource("1_qqjua")
+shader_parameter/base_color = Color(0.25, 0.6, 1, 1)
+shader_parameter/bg_brightness = 0.505
+shader_parameter/bg_edge_brightness = 0.185
+shader_parameter/bubble_whiten = 0.135
 shader_parameter/bubbleReslution = Vector2(24, 13.5)
 shader_parameter/bubbleDuration = 0.2
-shader_parameter/cycleSpeed = 0.05
-shader_parameter/scrollSpeed = 0.05
+shader_parameter/cycleSpeed = 0.04
+shader_parameter/scrollSpeed = 0.075
 shader_parameter/noiseTexture = ExtResource("4_ep2q3")
 shader_parameter/bubbleTexture = ExtResource("3_qn1dy")
-shader_parameter/bubbleColor = ExtResource("2_467ls")
-shader_parameter/vineteGradient = ExtResource("5_t34hy")
 
 [sub_resource type="Gradient" id="Gradient_0uh10"]
-offsets = PackedFloat32Array(0, 0.3253796, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.96963125, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.11445783, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.24705882, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3n4rg"]
 gradient = SubResource("Gradient_0uh10")
@@ -31,7 +31,6 @@ width = 128
 height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.9, 0)
 
 [node name="DayCompleted" type="CanvasLayer" unique_id=1129403177]
 process_mode = 3
@@ -55,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -500.0
-offset_right = 400.0
-offset_bottom = 500.0
+offset_left = -625.0
+offset_top = -625.0
+offset_right = 625.0
+offset_bottom = 625.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_3n4rg")
@@ -128,8 +127,8 @@ grow_horizontal = 2
 theme = ExtResource("3_f3clp")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-theme_override_constants/shadow_offset_x = 10
-theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_offset_x = -4
+theme_override_constants/shadow_offset_y = 6
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[wave freq=3 amp=50]DAY COMPLETE![/wave]"

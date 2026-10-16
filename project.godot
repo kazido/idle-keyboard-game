@@ -21,6 +21,8 @@ ValidWords="*uid://bcnxt1jfd61wl"
 WordInput="*uid://bvxpcp0gay34n"
 GameState="*uid://dq2g61baw6287"
 TextHelper="*uid://b8o4cxmhwf8nv"
+KeyboardModel="*uid://cqg2wk8qvgmn3"
+UpgradeRegistry="*uid://bs4ovs7joasyg"
 
 [display]
 
@@ -62,3 +64,4 @@ submit={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true

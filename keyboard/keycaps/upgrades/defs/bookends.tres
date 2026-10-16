@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Bookends" format=3 uid="uid://c7reoqflkkkf0"]
+
+[ext_resource type="Script" uid="uid://c663wjg6hoo6a" path="res://keyboard/keycaps/upgrades/bookends.gd" id="1_ua5vq"]
+
+[resource]
+script = ExtResource("1_ua5vq")
+display_name = "Bookends"
+description = "%s if this letter is both first and last"
+color = Color(1, 0.7019608, 0, 1)
+multiplier = 8.0
+weight = 5.0
+metadata/_custom_type_script = "uid://c663wjg6hoo6a"

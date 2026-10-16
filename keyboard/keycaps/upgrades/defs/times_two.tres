@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TimesTwo" format=3 uid="uid://541vewh5vl5p"]
+
+[ext_resource type="Script" uid="uid://dmdsh3rflhq74" path="res://keyboard/keycaps/upgrades/times_two.gd" id="1_7omp6"]
+
+[resource]
+script = ExtResource("1_7omp6")
+display_name = "Times Two"
+description = "%s when used in a word"
+color = Color(0.627451, 1, 0.4392157, 1)
+metadata/_custom_type_script = "uid://dmdsh3rflhq74"

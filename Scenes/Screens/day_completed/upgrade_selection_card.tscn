@@ -2,23 +2,52 @@
 
 [ext_resource type="Script" uid="uid://tjusdv22ma3t" path="res://scenes/screens/day_completed/upgrade_selection_card.gd" id="1_u7efr"]
 [ext_resource type="FontFile" uid="uid://cyc8344b6h1w1" path="res://fonts/Jersey25-Regular.ttf" id="2_376jb"]
+[ext_resource type="Resource" uid="uid://fr74wv6y0g12" path="res://keyboard/keycaps/upgrades/defs/double_down.tres" id="2_dcjkc"]
 [ext_resource type="FontFile" uid="uid://cuvpjpb1mlsy4" path="res://fonts/CasaletwoNbp-Bp4V.ttf" id="3_hd8af"]
 [ext_resource type="FontFile" uid="uid://bn226bkathyf1" path="res://fonts/Kenney Blocks.ttf" id="4_hd8af"]
 
-[node name="UpgradeSelectionCard" type="ColorRect" unique_id=1639842587]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcjkc"]
+bg_color = Color(0.13725491, 0.13725491, 0.13725491, 0.95686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2612b"]
+bg_color = Color(0.20784314, 0.20784314, 0.20784314, 0.95686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9241269, 0.8842252, 0.5148395, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab1m0"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.86416495, 0.7743308, 0.5075894, 1)
+border_blend = true
+
+[node name="UpgradeSelectionCard" type="Button" unique_id=316278847]
 process_mode = 3
 custom_minimum_size = Vector2(280, 420)
 offset_top = -1.0
 offset_right = 280.0
 offset_bottom = 419.0
 size_flags_vertical = 0
-color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcjkc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2612b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ab1m0")
 script = ExtResource("1_u7efr")
+upgrade = ExtResource("2_dcjkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2127572029]
 layout_mode = 0
 offset_right = 280.0
 offset_bottom = 420.0
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -26,12 +55,14 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1996204279]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="UpgradePlate" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1234119602]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.16862746)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="UpgradeName" type="RichTextLabel" parent="MarginContainer/VBoxContainer/UpgradePlate" unique_id=1748649358]
 unique_name_in_owner = true
@@ -39,6 +70,7 @@ layout_mode = 0
 offset_top = 4.0
 offset_right = 240.0
 offset_bottom = 44.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[wave]Upgrade Name[/wave]"
@@ -48,18 +80,21 @@ horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1543238786]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1068609423]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0.3529412)
 
 [node name="Keycap" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=654159233]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.10561416, 0.10561418, 0.10561413, 1)
@@ -80,6 +115,7 @@ vertical_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.8901961, 0.9490196, 0.89411765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.44313726)
 theme_override_constants/shadow_outline_size = 5
@@ -99,6 +135,7 @@ vertical_alignment = 3
 [node name="Rarity" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2110915143]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "RARITY"
 fit_content = true
@@ -106,12 +143,4 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Control" type="Control" parent="." unique_id=2043895943]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="gui_input" from="Control" to="." method="_on_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

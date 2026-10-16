@@ -6,8 +6,15 @@
 [node name="UpgradeSelection" type="CanvasLayer" unique_id=883611898]
 script = ExtResource("1_ro1n5")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=78615852]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1375880864]
-self_modulate = Color(1, 1, 1, 0.5372549)
 material = ExtResource("1_1aoam")
 anchors_preset = 15
 anchor_right = 1.0

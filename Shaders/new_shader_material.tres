@@ -53,6 +53,6 @@ void fragment() {
 
 [resource]
 shader = SubResource("Shader_x0h1o")
-shader_parameter/rainbow_speed = 0.33200001577
-shader_parameter/distortion_strength = 0.2810000133475
-shader_parameter/overlay_strength = 0.51200002432
+shader_parameter/rainbow_speed = 0.598000028405
+shader_parameter/distortion_strength = 0.0
+shader_parameter/overlay_strength = 0.4930000234175

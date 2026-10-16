@@ -13,4 +13,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_fullscreen"):
 		var is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 		DisplayServer.window_set_mode(
-			DisplayServer.WINDOW_MODE_FULLSCREEN if not is_fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.WINDOW_MODE_FULLSCREEN
+			 if not is_fullscreen 
+			 else DisplayServer.WINDOW_MODE_WINDOWED
+			 )

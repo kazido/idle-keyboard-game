@@ -242,7 +242,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_nxvpl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dewlx")
 
 [node name="AdminButtons" type="HBoxContainer" parent="." unique_id=1355070764]
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

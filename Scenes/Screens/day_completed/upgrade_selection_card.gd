@@ -1,31 +1,24 @@
-extends ColorRect
+extends Button
 class_name UpgradeSelectionCard
 
-signal picked # Emitted when this upgrade is chosen
+signal picked(upgrade: Upgrade, key: KeyData) # Emitted when this upgrade is chosen
 
-var upgrade: Upgrade
-var keycap: Keycap
-var keyboard: Keyboard
+@export var upgrade: Upgrade
+var key: KeyData
 
-func setup(new_upgrade: Upgrade):
+func _ready() -> void:
+	setup(upgrade, KeyData.new(Key.KEY_A))
+
+
+func setup(new_upgrade: Upgrade, new_key: KeyData) -> void:
 	upgrade = new_upgrade
-	%UpgradePlate.color = Color(upgrade.color)
-	%UpgradeName.text = "[wave][color=%s]" % new_upgrade.color + new_upgrade.name.to_upper()
-	%UpgradeDescription.text = new_upgrade.description
+	key = new_key
+	%UpgradePlate.color = upgrade.color
+	%UpgradeName.text = "[wave][color=%s]%s" % [upgrade.color.to_html(), upgrade.display_name.to_upper()]
+	%UpgradeDescription.text = upgrade.get_description()
+	%Keycap.text = key.get_key()
 	
-	randomize()
-	keyboard = get_tree().get_first_node_in_group("keyboard")
-	var keycaps = keyboard.get_node("Keycaps").get_children()
-	keycap = keycaps[randi() % keycaps.size()]
-	# Reselect a keycap if the randomly picked one already has an upgrade
-	while keycap.upgrade:
-		keycap = keycaps[randi() % keycaps.size()]
-	
-	%Keycap.text = keycap.get_key()
 
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
-			keyboard.apply_upgrade(keycap, upgrade)
-			picked.emit()
+func _on_pressed() -> void:
+	upgrade = upgrade
+	picked.emit(upgrade, key)

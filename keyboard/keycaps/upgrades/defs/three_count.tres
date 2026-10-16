@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ThreeCount" format=3 uid="uid://brg12sjxlqgfr"]
+
+[ext_resource type="Script" uid="uid://dvmne2cjimc6p" path="res://keyboard/keycaps/upgrades/three_count.gd" id="1_isbq8"]
+
+[resource]
+script = ExtResource("1_isbq8")
+display_name = "Three Count"
+description = "%s if this letter appears exactly 3 times"
+color = Color(0.8117647, 0.4117647, 1, 1)
+metadata/_custom_type_script = "uid://dvmne2cjimc6p"

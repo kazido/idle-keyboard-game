@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://bgc1h2yyjs5dc"]
 
-[ext_resource type="Texture2D" uid="uid://deyu82s68gise" path="res://assets/desk.png" id="1_tefeu"]
-[ext_resource type="Texture2D" uid="uid://c3essqdmqkac2" path="res://assets/mousepad.png" id="2_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://ckowv03164vrv" path="res://assets/keyboard_cable.png" id="3_tipki"]
-[ext_resource type="PackedScene" uid="uid://yi41qtvv27tb" path="res://scenes/keyboard/keyboard.tscn" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://blen6hpoa4nv8" path="res://scenes/ui/game_ui.tscn" id="5_choun"]
+[ext_resource type="Texture2D" uid="uid://deyu82s68gise" path="res://assets/desk.png" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c3essqdmqkac2" path="res://assets/mousepad.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://ckowv03164vrv" path="res://assets/keyboard_cable.png" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://chbee1giwisjq" path="res://keyboard/keyboard.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://blen6hpoa4nv8" path="res://scenes/ui/game_ui.tscn" id="5_85g3d"]
+
+[sub_resource type="Environment" id="Environment_tbgi4"]
+glow_enabled = true
+glow_intensity = 4.6
 
 [node name="Main" type="Node2D" unique_id=709920183]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1963603469]
+environment = SubResource("Environment_tbgi4")
 
 [node name="Wood Desk" type="Parallax2D" parent="." unique_id=900245066]
 repeat_size = Vector2(128, 128)
@@ -14,23 +21,23 @@ repeat_times = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="Wood Desk" unique_id=1348707956]
 scale = Vector2(2, 2)
-texture = ExtResource("1_tefeu")
+texture = ExtResource("1_tbgi4")
 
 [node name="Mousepad" type="Sprite2D" parent="." unique_id=2084341646]
 position = Vector2(-1, 81)
 scale = Vector2(2, 2)
-texture = ExtResource("2_o6xl0")
+texture = ExtResource("2_tefeu")
 
 [node name="Cable" type="Sprite2D" parent="." unique_id=358370940]
 visible = false
 position = Vector2(-217, -245)
 scale = Vector2(2, 2)
-texture = ExtResource("3_tipki")
+texture = ExtResource("3_o6xl0")
 
-[node name="Keyboard" parent="." unique_id=714098873 instance=ExtResource("4_85g3d")]
-position = Vector2(-1, 100)
+[node name="Keyboard" parent="." unique_id=168125092 instance=ExtResource("4_tbgi4")]
+position = Vector2(0, 100)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1404588316]
 
-[node name="UI" parent="." unique_id=1002928193 instance=ExtResource("5_choun")]
+[node name="UI" parent="." unique_id=1002928193 instance=ExtResource("5_85g3d")]

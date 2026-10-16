@@ -4,7 +4,7 @@ signal day_completed
 signal day_failed
 signal day_started
 
-enum Day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
+enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
 
 func day_to_string(day: Day) -> String:
 	return Day.keys()[day].capitalize()
@@ -16,9 +16,6 @@ var current_day: Day = Day.MONDAY
 var current_week: int = 1
 var words_used_today: Dictionary = {}
 var words_used_this_week: Dictionary = {}
-
-var keycap_upgrades: Dictionary = {} # { "A": upgrade, "D": upgrade}
-
 
 func _ready() -> void:
 	WordInput.word_submitted.connect(_on_word_submitted)
@@ -60,6 +57,7 @@ func add_score(points: int):
 	
 ## Reset the game back to its original state
 func reset_game():
+	KeyboardModel.reset()
 	words_used_this_week.clear()
 	current_day= Day.MONDAY
 	current_week = 1
@@ -91,6 +89,8 @@ func load_next_day():
 		words_used_this_week.clear()
 	else:
 		current_day = (current_day + 1) as Day
+
+	get_tree().reload_current_scene()
 		
 	day_started.emit()
 	

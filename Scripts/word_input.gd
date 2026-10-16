@@ -1,12 +1,12 @@
 ## LOGICAL REPRESENTATION of our typed word. ALL backend
 extends Node
 
-signal word_changed(buffer: Array[Keycap], state: WordState)
-signal word_submitted(buffer: Array[Keycap])
+signal word_changed(buffer: Array[KeyData], state: WordState)
+signal word_submitted(buffer: Array[KeyData])
 
 enum WordState { VALID, USED, INVALID }
 
-var buffer: Array[Keycap] = []
+var buffer: Array[KeyData] = []
 
 
 # --- [ BUFFER EDITING METHODS ] ---
@@ -14,12 +14,12 @@ func clear_buffer() -> void:
 	buffer.clear()
 	word_changed.emit(buffer, get_word_state())
 
-func type_letter(keycap) -> void:
+func type_letter(key: KeyData) -> void:
 	# Maximum word length of 24
 	if buffer.size() >= 24:
 		return
-		
-	buffer.append(keycap)
+		 
+	buffer.append(key)
 	word_changed.emit(buffer, get_word_state())
 
 func delete_letter():

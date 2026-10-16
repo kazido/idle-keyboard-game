@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EndsInLetter" format=3 uid="uid://boanqmxhh84la"]
+
+[ext_resource type="Script" uid="uid://b036jnbl0q132" path="res://keyboard/keycaps/upgrades/ends_in_letter.gd" id="1_vvb5v"]
+
+[resource]
+script = ExtResource("1_vvb5v")
+display_name = "Ends With"
+description = "%s if word ends with this letter"
+color = Color(0.21960784, 0.6039216, 0.9882353, 1)
+metadata/_custom_type_script = "uid://b036jnbl0q132"

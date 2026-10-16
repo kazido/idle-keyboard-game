@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BeginsInLetter" format=3 uid="uid://cuvibjsnkcwu7"]
+
+[ext_resource type="Script" uid="uid://bkumqmst3501v" path="res://keyboard/keycaps/upgrades/begins_in_letter.gd" id="1_uivi5"]
+
+[resource]
+script = ExtResource("1_uivi5")
+display_name = "Begins With"
+description = "%s if word begins with this letter"
+color = Color(0.21960784, 0.8352941, 0.9882353, 1)
+metadata/_custom_type_script = "uid://bkumqmst3501v"

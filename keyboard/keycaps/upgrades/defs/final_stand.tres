@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FinalStand" format=3 uid="uid://bcjq3jr3iy3q7"]
+
+[ext_resource type="Script" uid="uid://ctfwtofvdhlvh" path="res://keyboard/keycaps/upgrades/final_stand.gd" id="1_5clnn"]
+
+[resource]
+script = ExtResource("1_5clnn")
+display_name = "Final Stand"
+description = "%s if this in the last word of the day"
+color = Color(0.4862745, 0.3019608, 1, 1)
+metadata/_custom_type_script = "uid://ctfwtofvdhlvh"

@@ -1,0 +1,1329 @@
+[gd_scene format=3 uid="uid://chbee1giwisjq"]
+
+[ext_resource type="Texture2D" uid="uid://hg8s3ljqw0hp" path="res://assets/keyboard.png" id="1_kl5wb"]
+[ext_resource type="Script" uid="uid://sio10fafrf5v" path="res://keyboard/keyboard.gd" id="2_5d8bc"]
+[ext_resource type="PackedScene" uid="uid://bpgexwjvjorra" path="res://keyboard/keycaps/keycap.tscn" id="3_8lrko"]
+[ext_resource type="Script" uid="uid://b8eyttvfsmty1" path="res://keyboard/keycaps/keycap.gd" id="4_amabh"]
+[ext_resource type="Texture2D" uid="uid://5xw8taro6auh" path="res://assets/keycap1.png" id="5_2m0rp"]
+[ext_resource type="Texture2D" uid="uid://b1o7t35qso1yx" path="res://assets/spacebar.png" id="6_ht2xl"]
+[ext_resource type="Texture2D" uid="uid://duodtexujthwm" path="res://assets/backspace.png" id="7_fr4pr"]
+[ext_resource type="Texture2D" uid="uid://cs5x3mqmvuc00" path="res://assets/backslash.png" id="8_se276"]
+[ext_resource type="Texture2D" uid="uid://bg3xghrnciv7x" path="res://assets/enter.png" id="9_0s4c5"]
+[ext_resource type="Texture2D" uid="uid://tio02dtv7rj0" path="res://assets/right_shift.png" id="10_g4ad4"]
+[ext_resource type="Texture2D" uid="uid://coj47y5wx826p" path="res://assets/modifier.png" id="11_y84nr"]
+[ext_resource type="Texture2D" uid="uid://bh1uvgibip0pj" path="res://assets/tab.png" id="12_ro5s2"]
+[ext_resource type="Texture2D" uid="uid://cnl7nx2qolmcd" path="res://assets/capslock.png" id="13_2vogj"]
+[ext_resource type="Texture2D" uid="uid://b2ht52rabi5l3" path="res://assets/left_shift.png" id="14_aqdcs"]
+[ext_resource type="Texture2D" uid="uid://g3hfosiq6kbg" path="res://assets/test_keycaps.png" id="15_dipmk"]
+
+[sub_resource type="Gradient" id="Gradient_bammy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgoes"]
+gradient = SubResource("Gradient_bammy")
+width = 18
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1uiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2m0rp")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_swrkl"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikr7f"]
+gradient = SubResource("Gradient_swrkl")
+width = 125
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtepm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ht2xl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_8n5yh"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dtepm"]
+gradient = SubResource("Gradient_8n5yh")
+width = 31
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csj70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fr4pr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qs4pn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g344y"]
+gradient = SubResource("Gradient_qs4pn")
+width = 25
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kixte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_se276")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_5tmk0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmhvg"]
+gradient = SubResource("Gradient_5tmk0")
+width = 34
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_px3mx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0s4c5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_vl1ce"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpha7"]
+gradient = SubResource("Gradient_vl1ce")
+width = 45
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nt366"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_g4ad4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_40q2h"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4u716"]
+gradient = SubResource("Gradient_40q2h")
+width = 20
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd44e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_y84nr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_dd3ed"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_56hqi"]
+gradient = SubResource("Gradient_dd3ed")
+width = 24
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qeu5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ro5s2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ledu4"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u3dy5"]
+gradient = SubResource("Gradient_ledu4")
+width = 33
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogmf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_2vogj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ylvcx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7vf5m"]
+gradient = SubResource("Gradient_ylvcx")
+width = 40
+height = 18
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oowhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_aqdcs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Keyboard" type="Sprite2D" unique_id=168125092]
+texture = ExtResource("1_kl5wb")
+script = ExtResource("2_5d8bc")
+
+[node name="Keycaps" type="Node2D" parent="." unique_id=1815924809]
+position = Vector2(0.5, -0.5)
+
+[node name="G" parent="Keycaps" unique_id=1864117511 instance=ExtResource("3_8lrko")]
+position = Vector2(-18, -1)
+target_key = 71
+
+[node name="H" parent="Keycaps" unique_id=1680108553 instance=ExtResource("3_8lrko")]
+position = Vector2(0, -1)
+target_key = 72
+
+[node name="F" parent="Keycaps" unique_id=1931038734 instance=ExtResource("3_8lrko")]
+position = Vector2(-36, -1)
+target_key = 70
+
+[node name="J" parent="Keycaps" unique_id=1213908858 instance=ExtResource("3_8lrko")]
+position = Vector2(18, -1)
+target_key = 74
+
+[node name="D" parent="Keycaps" unique_id=1037075287 instance=ExtResource("3_8lrko")]
+position = Vector2(-54, -1)
+target_key = 68
+
+[node name="K" parent="Keycaps" unique_id=1908506534 instance=ExtResource("3_8lrko")]
+position = Vector2(36, -1)
+target_key = 75
+
+[node name="S" parent="Keycaps" unique_id=1865005823 instance=ExtResource("3_8lrko")]
+position = Vector2(-72, -1)
+target_key = 83
+
+[node name="L" parent="Keycaps" unique_id=368009364 instance=ExtResource("3_8lrko")]
+position = Vector2(54, -1)
+target_key = 76
+
+[node name="A" parent="Keycaps" unique_id=536237657 instance=ExtResource("3_8lrko")]
+position = Vector2(-90, -1)
+target_key = 65
+
+[node name="T" parent="Keycaps" unique_id=1403192171 instance=ExtResource("3_8lrko")]
+position = Vector2(-27, -19)
+target_key = 84
+
+[node name="Y" parent="Keycaps" unique_id=1751798487 instance=ExtResource("3_8lrko")]
+position = Vector2(-9, -19)
+target_key = 89
+
+[node name="R" parent="Keycaps" unique_id=1096142773 instance=ExtResource("3_8lrko")]
+position = Vector2(-45, -19)
+target_key = 82
+
+[node name="U" parent="Keycaps" unique_id=1008570255 instance=ExtResource("3_8lrko")]
+position = Vector2(9, -19)
+target_key = 85
+
+[node name="E" parent="Keycaps" unique_id=513665231 instance=ExtResource("3_8lrko")]
+position = Vector2(-63, -19)
+target_key = 69
+
+[node name="I" parent="Keycaps" unique_id=1450729740 instance=ExtResource("3_8lrko")]
+position = Vector2(27, -19)
+target_key = 73
+
+[node name="W" parent="Keycaps" unique_id=1552983992 instance=ExtResource("3_8lrko")]
+position = Vector2(-81, -19)
+target_key = 87
+
+[node name="O" parent="Keycaps" unique_id=921118972 instance=ExtResource("3_8lrko")]
+position = Vector2(45, -19)
+target_key = 79
+
+[node name="Q" parent="Keycaps" unique_id=1060203104 instance=ExtResource("3_8lrko")]
+position = Vector2(-99, -19)
+target_key = 81
+
+[node name="P" parent="Keycaps" unique_id=2014074744 instance=ExtResource("3_8lrko")]
+position = Vector2(63, -19)
+target_key = 80
+
+[node name="B" parent="Keycaps" unique_id=113476759 instance=ExtResource("3_8lrko")]
+position = Vector2(-11, 17)
+target_key = 66
+
+[node name="V" parent="Keycaps" unique_id=582737025 instance=ExtResource("3_8lrko")]
+position = Vector2(-29, 17)
+target_key = 86
+
+[node name="N" parent="Keycaps" unique_id=350762359 instance=ExtResource("3_8lrko")]
+position = Vector2(7, 17)
+target_key = 78
+
+[node name="C" parent="Keycaps" unique_id=1169808341 instance=ExtResource("3_8lrko")]
+position = Vector2(-47, 17)
+target_key = 67
+
+[node name="M" parent="Keycaps" unique_id=981274936 instance=ExtResource("3_8lrko")]
+position = Vector2(25, 17)
+target_key = 77
+
+[node name="X" parent="Keycaps" unique_id=394609838 instance=ExtResource("3_8lrko")]
+position = Vector2(-65, 17)
+target_key = 88
+
+[node name="Z" parent="Keycaps" unique_id=1220881557 instance=ExtResource("3_8lrko")]
+position = Vector2(-83, 17)
+target_key = 90
+
+[node name="Number Row" type="Node2D" parent="." unique_id=1010099432]
+position = Vector2(7, 0)
+
+[node name="Macro" parent="Number Row" unique_id=449460918 instance=ExtResource("3_8lrko")]
+position = Vector2(-111.5, -37.5)
+target_key = 49
+alphabetic = false
+
+[node name="Macro2" parent="Number Row" unique_id=1127198804 instance=ExtResource("3_8lrko")]
+position = Vector2(-93.5, -37.5)
+target_key = 50
+alphabetic = false
+
+[node name="Macro3" parent="Number Row" unique_id=1305622815 instance=ExtResource("3_8lrko")]
+position = Vector2(-75.5, -37.5)
+target_key = 51
+alphabetic = false
+
+[node name="Macro4" parent="Number Row" unique_id=374323172 instance=ExtResource("3_8lrko")]
+position = Vector2(-57.5, -37.5)
+target_key = 52
+alphabetic = false
+
+[node name="Macro5" parent="Number Row" unique_id=1990141861 instance=ExtResource("3_8lrko")]
+position = Vector2(-39.5, -37.5)
+target_key = 53
+alphabetic = false
+
+[node name="Macro6" parent="Number Row" unique_id=1980950347 instance=ExtResource("3_8lrko")]
+position = Vector2(-21.5, -37.5)
+target_key = 54
+alphabetic = false
+
+[node name="Macro7" parent="Number Row" unique_id=1186341495 instance=ExtResource("3_8lrko")]
+position = Vector2(-3.5, -37.5)
+target_key = 55
+alphabetic = false
+
+[node name="Macro8" parent="Number Row" unique_id=1530416403 instance=ExtResource("3_8lrko")]
+position = Vector2(14.5, -37.5)
+target_key = 56
+alphabetic = false
+
+[node name="Macro9" parent="Number Row" unique_id=47525547 instance=ExtResource("3_8lrko")]
+position = Vector2(32.5, -37.5)
+target_key = 57
+alphabetic = false
+
+[node name="Macro0" parent="Number Row" unique_id=182380896 instance=ExtResource("3_8lrko")]
+position = Vector2(50.5, -37.5)
+target_key = 48
+alphabetic = false
+
+[node name="Other" type="Node2D" parent="." unique_id=611101517]
+position = Vector2(7, 0)
+
+[node name="Escape" type="Node2D" parent="Other" unique_id=234021412]
+position = Vector2(-129.5, -37.5)
+script = ExtResource("4_amabh")
+target_key = 4194305
+name_overwrite = "Esc"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Escape" unique_id=723261866]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Escape" unique_id=253031616]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Escape" unique_id=862973187]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Comma" type="Node2D" parent="Other" unique_id=747094370]
+position = Vector2(36.5, 16.5)
+script = ExtResource("4_amabh")
+target_key = 44
+name_overwrite = ","
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Comma" unique_id=291946293]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Comma" unique_id=154604933]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Comma" unique_id=1007652332]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Period" type="Node2D" parent="Other" unique_id=1404053394]
+position = Vector2(54.5, 16.5)
+script = ExtResource("4_amabh")
+target_key = 46
+name_overwrite = "."
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Period" unique_id=2143943101]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Period" unique_id=2122748895]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Period" unique_id=1257433434]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slash" type="Node2D" parent="Other" unique_id=1967207945]
+position = Vector2(72.5, 16.5)
+script = ExtResource("4_amabh")
+target_key = 47
+name_overwrite = "/"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Slash" unique_id=1224075344]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Slash" unique_id=1603745088]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Slash" unique_id=1484310494]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Semicolon" type="Node2D" parent="Other" unique_id=135649799]
+position = Vector2(65.5, -1.5)
+script = ExtResource("4_amabh")
+target_key = 59
+name_overwrite = ";"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Semicolon" unique_id=126535715]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Semicolon" unique_id=1014227079]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Semicolon" unique_id=1396990124]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Apostrophe" type="Node2D" parent="Other" unique_id=89280481]
+position = Vector2(83.5, -1.5)
+script = ExtResource("4_amabh")
+target_key = 39
+name_overwrite = "'"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Apostrophe" unique_id=1281308895]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Apostrophe" unique_id=1546565587]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Apostrophe" unique_id=52998974]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left Bracket" type="Node2D" parent="Other" unique_id=451416658]
+position = Vector2(74.5, -19.5)
+script = ExtResource("4_amabh")
+target_key = 91
+name_overwrite = "["
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Left Bracket" unique_id=561806821]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Left Bracket" unique_id=2051282126]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Left Bracket" unique_id=1155092006]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right Bracket" type="Node2D" parent="Other" unique_id=1569146700]
+position = Vector2(92.5, -19.5)
+script = ExtResource("4_amabh")
+target_key = 93
+name_overwrite = "]"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Right Bracket" unique_id=1657065573]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Right Bracket" unique_id=519010716]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Right Bracket" unique_id=730037380]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Minus" type="Node2D" parent="Other" unique_id=254589267]
+position = Vector2(68.5, -37.5)
+script = ExtResource("4_amabh")
+target_key = 45
+name_overwrite = "-"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Minus" unique_id=140528147]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Minus" unique_id=1723390978]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Minus" unique_id=573983184]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equals" type="Node2D" parent="Other" unique_id=579500112]
+position = Vector2(86.5, -37.5)
+script = ExtResource("4_amabh")
+target_key = 61
+name_overwrite = "="
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Other/Equals" unique_id=2096313730]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_fgoes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Other/Equals" unique_id=1878571315]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_f1uiu")
+
+[node name="Label" type="Label" parent="Other/Equals" unique_id=224351095]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weird Shaped" type="Node2D" parent="." unique_id=942000700]
+position = Vector2(7, 0)
+
+[node name="Spacebar" type="Node2D" parent="Weird Shaped" unique_id=36646076]
+position = Vector2(-16, 34.5)
+script = ExtResource("4_amabh")
+target_key = 32
+name_overwrite = " "
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Spacebar" unique_id=1246524607]
+modulate = Color(1, 1, 1, 0.19607843)
+texture = SubResource("GradientTexture2D_ikr7f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Spacebar" unique_id=539771568]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_dtepm")
+
+[node name="Label" type="Label" parent="Weird Shaped/Spacebar" unique_id=1182425349]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Backspace" type="Node2D" parent="Weird Shaped" unique_id=1953676985]
+position = Vector2(110.5, -37.5)
+script = ExtResource("4_amabh")
+name_overwrite = "Backspace"
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Backspace" unique_id=1187332543]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_dtepm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Backspace" unique_id=780820739]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_csj70")
+
+[node name="Label" type="Label" parent="Weird Shaped/Backspace" unique_id=1434395226]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+text = "Backspace"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Backslash" type="Node2D" parent="Weird Shaped" unique_id=263774815]
+position = Vector2(113.5, -19.5)
+script = ExtResource("4_amabh")
+target_key = 92
+name_overwrite = "\\"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Backslash" unique_id=1436316734]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_g344y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Backslash" unique_id=426124217]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_kixte")
+
+[node name="Label" type="Label" parent="Weird Shaped/Backslash" unique_id=1489062052]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enter" type="Node2D" parent="Weird Shaped" unique_id=724488028]
+position = Vector2(109, -1.5)
+script = ExtResource("4_amabh")
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Enter" unique_id=398752058]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_gmhvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Enter" unique_id=465498788]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_px3mx")
+
+[node name="Label" type="Label" parent="Weird Shaped/Enter" unique_id=35058827]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right Shift" type="Node2D" parent="Weird Shaped" unique_id=653182228]
+position = Vector2(103.5, 16.5)
+script = ExtResource("4_amabh")
+target_key = 4194325
+name_overwrite = "Shift"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Right Shift" unique_id=998315961]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_hpha7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Right Shift" unique_id=118511820]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_nt366")
+
+[node name="Label" type="Label" parent="Weird Shaped/Right Shift" unique_id=22425209]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Alt" type="Node2D" parent="Weird Shaped" unique_id=1748210220]
+position = Vector2(56.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Alt" unique_id=624702593]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Alt" unique_id=1601146760]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Alt" unique_id=765921739]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Node2D" parent="Weird Shaped" unique_id=1752711164]
+position = Vector2(76.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Control" unique_id=1655911088]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Control" unique_id=1503165700]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Control" unique_id=1947588920]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Node2D" parent="Weird Shaped" unique_id=750738111]
+position = Vector2(96.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Control2" unique_id=896766886]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Control2" unique_id=183223816]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Control2" unique_id=1925608125]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Node2D" parent="Weird Shaped" unique_id=515845436]
+position = Vector2(116.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Control3" unique_id=1654955531]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Control3" unique_id=711493085]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Control3" unique_id=209321418]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left Alt" type="Node2D" parent="Weird Shaped" unique_id=2015970540]
+position = Vector2(-88.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Left Alt" unique_id=438524546]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Left Alt" unique_id=204985021]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Left Alt" unique_id=779860106]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Super" type="Node2D" parent="Weird Shaped" unique_id=1486373500]
+position = Vector2(-108.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Super" unique_id=73502143]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Super" unique_id=272160509]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Super" unique_id=1051091842]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left Control" type="Node2D" parent="Weird Shaped" unique_id=1038633509]
+position = Vector2(-128.5, 34.5)
+script = ExtResource("4_amabh")
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Left Control" unique_id=819505509]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_4u716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Left Control" unique_id=1091554956]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_wd44e")
+
+[node name="Label" type="Label" parent="Weird Shaped/Left Control" unique_id=687697229]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tab" type="Node2D" parent="Weird Shaped" unique_id=690010287]
+position = Vector2(-126.5, -19.5)
+script = ExtResource("4_amabh")
+target_key = 4194306
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Tab" unique_id=772796732]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_56hqi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Tab" unique_id=1715374393]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_qeu5h")
+
+[node name="Label" type="Label" parent="Weird Shaped/Tab" unique_id=19337452]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 14)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capslock" type="Node2D" parent="Weird Shaped" unique_id=1029561820]
+position = Vector2(-122, -1.5)
+script = ExtResource("4_amabh")
+target_key = 4194329
+name_overwrite = "Caps"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Capslock" unique_id=1117935703]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_u3dy5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Capslock" unique_id=1178573291]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ogmf8")
+
+[node name="Label" type="Label" parent="Weird Shaped/Capslock" unique_id=1005757501]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+text = "Caps"
+
+[node name="Left Shift" type="Node2D" parent="Weird Shaped" unique_id=940870187]
+position = Vector2(-118.5, 16.5)
+script = ExtResource("4_amabh")
+target_key = 4194325
+name_overwrite = "Shift"
+alphabetic = false
+
+[node name="Backlight" type="Sprite2D" parent="Weird Shaped/Left Shift" unique_id=784354831]
+modulate = Color(1, 1, 1, 0.11372549)
+texture = SubResource("GradientTexture2D_7vf5m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weird Shaped/Left Shift" unique_id=1074060234]
+modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_oowhb")
+
+[node name="Label" type="Label" parent="Weird Shaped/Left Shift" unique_id=116712618]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_font_sizes/font_size = 8
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TestKeycaps" type="Sprite2D" parent="." unique_id=1114760732]
+visible = false
+modulate = Color(1, 1, 1, 0.11764706)
+position = Vector2(1.5, -1.5)
+texture = ExtResource("15_dipmk")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DoubleDown" format=3 uid="uid://fr74wv6y0g12"]
+
+[ext_resource type="Script" uid="uid://bovhersryswj2" path="res://keyboard/keycaps/upgrades/double_down.gd" id="1_pdxwh"]
+
+[resource]
+script = ExtResource("1_pdxwh")
+display_name = "Double Down"
+description = "%s if this letter appears exactly 2 times"
+color = Color(0.3019608, 0.6392157, 1, 1)
+metadata/_custom_type_script = "uid://bovhersryswj2"

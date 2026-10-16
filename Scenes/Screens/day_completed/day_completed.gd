@@ -17,7 +17,7 @@ func _ready() -> void:
 	var val := randf()
 	color = Color.from_hsv(val, 0.8, 1.0)
 	color2 = Color.from_hsv(val, 0.3, 1.0)
-	shader_bg.material.set_shader_parameter("glow_color", color)
+	shader_bg.material.set_shader_parameter("base_color", color)
 	title.add_theme_color_override("default_color", color)
 	hr.modulate = color2
 	

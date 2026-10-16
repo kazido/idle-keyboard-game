@@ -3,22 +3,22 @@
 [ext_resource type="Theme" uid="uid://h6t4d457soli" path="res://themes/main_theme.tres" id="1_m5628"]
 [ext_resource type="Script" uid="uid://bmq4oro0vm3fv" path="res://scenes/screens/game_over.gd" id="1_sj7di"]
 [ext_resource type="Shader" uid="uid://dvck68mf32cri" path="res://shaders/BlinkingSquares.gdshader" id="1_t23k5"]
-[ext_resource type="Texture2D" uid="uid://0ik7uibknwei" path="res://shaders/BubbleColorGrad.tres" id="2_o6l22"]
-[ext_resource type="Texture2D" uid="uid://dvyjdhcrwflxw" path="res://shaders/SquareGlowingBubble.png" id="3_sj7di"]
+[ext_resource type="Texture2D" uid="uid://cqgg3nohjigmn" path="res://shaders/whitex.png" id="3_t23k5"]
 [ext_resource type="Texture2D" uid="uid://brmfbgel466d8" path="res://shaders/BubbleNoise.tres" id="4_tcnjx"]
-[ext_resource type="Texture2D" uid="uid://bcs2qo56sgfug" path="res://shaders/BackgroundGradTeal.tres" id="5_aolym"]
 [ext_resource type="FontFile" uid="uid://dkvf6halfv42c" path="res://fonts/Kenney Mini.ttf" id="7_o6l22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ify0j"]
 shader = ExtResource("1_t23k5")
+shader_parameter/base_color = Color(1, 0.29373387, 0.46995735, 1)
+shader_parameter/bg_brightness = 0.15
+shader_parameter/bg_edge_brightness = 0.035
+shader_parameter/bubble_whiten = -0.055
 shader_parameter/bubbleReslution = Vector2(24, 13.5)
-shader_parameter/bubbleDuration = 0.2
-shader_parameter/cycleSpeed = 0.02
-shader_parameter/scrollSpeed = 0.01
+shader_parameter/bubbleDuration = 0.13
+shader_parameter/cycleSpeed = 0.05
+shader_parameter/scrollSpeed = 0.02
 shader_parameter/noiseTexture = ExtResource("4_tcnjx")
-shader_parameter/bubbleTexture = ExtResource("3_sj7di")
-shader_parameter/bubbleColor = ExtResource("2_o6l22")
-shader_parameter/vineteGradient = ExtResource("5_aolym")
+shader_parameter/bubbleTexture = ExtResource("3_t23k5")
 
 [sub_resource type="GDScript" id="GDScript_7xe70"]
 resource_name = "MouseShaderScript"

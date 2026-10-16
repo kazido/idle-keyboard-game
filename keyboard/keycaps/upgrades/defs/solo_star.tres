@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoloStar" format=3 uid="uid://y2n3ujfq7bvc"]
+
+[ext_resource type="Script" uid="uid://c6f0mh82hui58" path="res://keyboard/keycaps/upgrades/solo_star.gd" id="1_6bb0x"]
+
+[resource]
+script = ExtResource("1_6bb0x")
+display_name = "No I In Team"
+description = "%s if this letter appears exactly 1 time"
+color = Color(0.4862745, 0.3019608, 1, 1)
+metadata/_custom_type_script = "uid://c6f0mh82hui58"
